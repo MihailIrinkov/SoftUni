@@ -1,6 +1,6 @@
 # SoftUni
 
-Programming Basics with Java srted on 08.01.2022
+Programming Basics with Java srtarted on 08.01.2022
 ОЦЕНКА ПРАКТИКА: Много добър (5.39)
 ОЦЕНКА ТЕОРИЯ: Отличен (5.60)
 	
