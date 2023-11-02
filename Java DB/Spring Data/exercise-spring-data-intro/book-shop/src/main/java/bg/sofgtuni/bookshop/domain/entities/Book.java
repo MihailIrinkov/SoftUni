@@ -1,0 +1,71 @@
+package bg.sofgtuni.bookshop.domain.entities;
+
+import bg.sofgtuni.bookshop.domain.enums.AgeRestriction;
+import bg.sofgtuni.bookshop.domain.enums.EditionType;
+import jakarta.persistence.*;
+import lombok.*;
+
+import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.util.List;
+import java.util.Set;
+
+
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+@Entity
+@Table(name = "books")
+public class Book extends BaseEntity {
+
+    @Column(nullable = false, length = 50)
+    private String title;
+
+    @Column(length = 100)
+    private String description;
+
+    @Enumerated(EnumType.STRING)
+    private EditionType editionType;
+
+    @Column(nullable = false)
+    private BigDecimal price;
+
+    @Column(nullable = false)
+    private Integer copies;
+
+    @Column(name = "release_date")
+    private LocalDate releaseDate;
+
+    @Enumerated(EnumType.STRING)
+    private AgeRestriction ageRestriction;
+
+    @ManyToOne
+    private Author author;
+
+    @ManyToMany
+    private Set<Category> categories;
+
+    public String getBookTitleReleaseDateCopiesFormat() {
+        return this.title + " " + this.releaseDate + " " + this.copies;
+    }
+
+//    public String getBookTitleAndPriceFormat() {
+//        return this.title + " - $" + this.price;
+//    }
+
+    public String getBookTitleEditionTypeAndPrice() {
+        return this.title + " " + this.editionType.name() + " " + this.price;
+    }
+
+    public String printNameAndPriceFormat(){
+        return this.title + " - $" + this.price;
+    }
+
+    public String getTitleEditionTypeFormat() {
+       return this.title + " " + this.editionType + " " + this.price;
+    }
+
+
+}
