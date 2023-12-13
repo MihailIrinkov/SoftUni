@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addresses>
+    <Wrap>
+        <inner population="123456">
+            <country>BG</country>
+            <city>Sofia</city>
+        </inner>
+        <inner population="654123">
+            <country>BG</country>
+            <city>Bourgas</city>
+        </inner>
+    </Wrap>
+</addresses>
