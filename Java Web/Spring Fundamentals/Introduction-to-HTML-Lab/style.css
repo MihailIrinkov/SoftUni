@@ -1,0 +1,116 @@
+body {
+    margin: 0;
+    background: lightgrey;
+    font-family: sans-serif;
+}
+
+nav {
+    background: #234465;
+    margin: 0 auto;
+    padding: 0;
+    width: 80%;
+}
+
+nav li {
+    padding: 20px;
+    display: inline-block;
+    text-align: center;
+    margin: 0;
+}
+
+nav li a {
+    color: white;
+    /*подчертаното отдолу*/
+    text-decoration: none;
+}
+
+/*nav il {*/
+/*    text-align: left;*/
+/*    margin: 50%;*/
+/*    padding: 50px;*/
+/*}*/
+
+article {
+    text-align: left;
+    margin: 0 auto;
+}
+
+section {
+    width: 60%;
+    margin: 80px auto;
+}
+
+section h1 {
+    text-align: center;
+    front-size: 42px;
+}
+
+header {
+    text-align: left;
+}
+
+header p {
+    front-style: italic;
+    text-align: left;
+    padding: 5px;
+}
+
+aside {
+    object-position: left;
+    text-decoration: none;
+    width: 7%;
+    margin: 0;
+    text-align: left;
+    background: cadetblue;
+    padding: 50px;
+}
+
+aside li a{
+    text-decoration: none;
+}
+
+/*footer {*/
+/*    background: #234465;*/
+/*    margin: auto;*/
+/*    color: white;*/
+/*    text-align: center;*/
+/*    padding: 20px;*/
+/*}*/
+
+footer {
+    background: #234465;
+    text-align: center;
+    color: white;
+    padding: 8px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+figure img{
+    width: 20%;
+    box-sizing: border-box;
+}
+
+table, td, tr, th {
+    border: 1px solid #000000;
+    border-collapse: collapse;
+}
+
+td, th {
+    padding: 10px;
+}
+
+.bold {
+    font-weight: bold;
+    text-align: center;
+}
+.result {
+    width: 400px;
+    text-align: right;
+    padding-right: 5px;
+}
+
+/*.test {*/
+/*    text-align: right;*/
+/*}*/
