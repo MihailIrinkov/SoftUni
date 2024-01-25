@@ -1,0 +1,13 @@
+header {
+    background: lightgrey;
+    margin: auto;
+    padding: 40px;
+    width: 23%;
+    text-align: center;
+    font-family: sans-serif;
+}
+
+header ol li{
+    border-bottom: 1px solid black;
+    text-align: left;
+}

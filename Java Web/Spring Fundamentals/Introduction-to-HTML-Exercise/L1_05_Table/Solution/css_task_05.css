@@ -1,0 +1,22 @@
+body {
+    font-family: sans-serif;
+}
+
+thead {
+    font-weight: bold;
+}
+
+table, td, tr, th {
+    border: 1px solid #000000;
+    border-collapse: collapse;
+}
+
+.bold {
+    font-weight: bold;
+    text-align: center;
+}
+
+table td {
+    text-align: right;
+width: 70px;
+}
