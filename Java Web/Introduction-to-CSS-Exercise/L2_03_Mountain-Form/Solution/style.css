@@ -1,0 +1,39 @@
+body {
+    font-family: "Lato", sans-serif;
+    width: 965px;
+}
+
+section {
+    display: flex;
+    align-items: center;
+}
+
+form section:nth-child(1) {
+    background-image: url("../Requirements-and-Resources/Images/peak.jpg");
+    background-size: cover;
+    background-position: left;
+    padding: 15rem;
+    display: inline-block;
+    width: 0;
+    /*margin-left: 18%;*/
+    float: left;
+}
+
+form section:nth-child(2) {
+    display: inline-block;
+    border: black solid;
+    background: white right;
+    padding: 15rem;
+    width: 0;
+    float: right;
+    /*margin-right: 17%;*/
+    padding-bottom: 530px;
+}
+
+h1 {
+    display: inline-block;
+    text-align: center;
+    padding-bottom: 200px;
+    vertical-align: middle;
+    color: white;
+}

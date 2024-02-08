@@ -1,0 +1,66 @@
+body {
+    font-family: "Helvetica", sans-serif;
+    background: #FAEBC8;
+    display: inline-block;
+}
+
+div {
+    align-content: center;
+    margin: 6%;
+    border-radius: 10px;
+    /*width: 1220px;*/
+    /*padding-right: 50px;*/
+}
+
+/*section {*/
+/*    display: inline-block;*/
+/*}*/
+ img {
+     display: inline-block;
+     width: 120px;
+ }
+
+ section article {
+     display: inline-block;
+     width: 15%;
+ }
+
+ section article h2 {
+     display: inline-block;
+ }
+
+
+ section:nth-child(1) article{
+     padding-left: 180px;
+     padding-right: 0;
+     padding-top: 70px;
+ }
+
+ section article:nth-child(3) {
+     padding-bottom: 5%;
+ }
+
+section article:nth-child(2) p {
+    padding-bottom: 40px;
+}
+
+section article:nth-child(3) p {
+    padding-bottom: 20px;
+}
+
+
+section article p:nth-of-type(2) {
+    color: saddlebrown;
+    font-weight: bold;
+    font-style: oblique;
+    text-shadow: 20px 20px lightgrey;
+}
+
+#demoObject {
+    -webkit-box-shadow: #FFF 0 -1px 4px, #ff0 0 -2px 10px, #ff8000 0 -10px 20px, red 0 -18px 40px, 5px 5px 15px 5px rgba(0,0,0,0);
+    box-shadow: #FFF 0 -1px 4px, #ff0 0 -2px 10px, #ff8000 0 -10px 20px, red 0 -18px 40px, 5px 5px 15px 5px rgba(0,0,0,0);
+    background: #FFFFFF;
+}
+body#tinymce {
+    background: #FFFFFF
+}
