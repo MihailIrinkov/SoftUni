@@ -59,88 +59,90 @@ public class BorrowingRecordsServiceImpl implements BorrowingRecordsService {
     public String importBorrowingRecords() throws IOException, JAXBException {
         StringBuilder sb = new StringBuilder();
 
-//        List<BorrowingRecordDTO> recordsList =
-//                new ArrayList<>(xmlParser.fromFile(Path.of(BORROWING_RECORD_PATH).toFile(),
-//                        BorrowingRecordRootDTO.class).getRecordsDTO());
+        List<BorrowingRecordDTO> recordsList =
+                new ArrayList<>(xmlParser.fromFile(Path.of(BORROWING_RECORD_PATH).toFile(),
+                        BorrowingRecordRootDTO.class).getRecordsDTO());
+
+        for (BorrowingRecordDTO record : recordsList) {
+            boolean isValid = validationUtils.isValid(record);
+            Optional<Book> book = this.bookRepository.findByTitle(record.getTitle().getTitle());
+            if (book.isEmpty() || !isValid) {
+                sb.append("Invalid borrowing record");
+                sb.append(System.lineSeparator());
+                continue;
+            }
+
+            Optional<LibraryMember> member =
+                    this.libraryMemberRepository.findById(record.getMember().getId());
+            if (member.isEmpty()) {
+                sb.append("Invalid borrowing record");
+                sb.append(System.lineSeparator());
+                continue;
+            }
+
+            if (isValid) {
+                BorrowingRecord recordToSave = modelMapper.map(record, BorrowingRecord.class);
+
+                recordToSave.setMember(member.get());
+
+                recordToSave.setBook(book.get());
+//                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+//                String borrowDateString = record.getBorrowDate();
+//                LocalDate borrowLocalDate = LocalDate.parse(borrowDateString, formatter);
+//                recordToSave.setBorrowDate(borrowLocalDate);
 //
-//        for (BorrowingRecordDTO record : recordsList) {
-//            Optional<Book> book = this.bookRepository.findByTitle(record.getTitle().getTitle());
-//            if (book.isEmpty()) {
-//                sb.append("Invalid borrowing record");
-//                sb.append(System.lineSeparator());
-//            }
+//                String returnDateString = record.getReturnDate();
+//                LocalDate returnLocalDate = LocalDate.parse(returnDateString, formatter);
+//                recordToSave.setReturnDate(returnLocalDate);
+
+                this.borrowingRecordRepository.save(recordToSave);
+                String formattedDate = recordToSave.getBorrowDate()
+                        .format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+                sb.append(String.format("Successfully imported borrowing record %s - %s%n"
+                        , recordToSave.getBook().getTitle(), formattedDate));
+            }
+        }
+
+
+//        xmlParser
+//                .fromFile(Path.of(BORROWING_RECORD_PATH).toFile(), BorrowingRecordRootDTO.class)
+//                .getRecordsDTO()
+//                .stream()
+//                .filter(borrowingRecordSeedDto -> {
+//                    boolean isValid = validationUtils.isValid(borrowingRecordSeedDto);
 //
-//            Optional<LibraryMember> member =
-//                    this.libraryMemberRepository.findById(record.getMember().getId());
-//            if (member.isEmpty()) {
-//                sb.append("Invalid borrowing record");
-//                sb.append(System.lineSeparator());
-//            }
+//                    LibraryMember libraryMember = this.libraryMemberRepository.findById(borrowingRecordSeedDto.getMember().getId()).orElse(null);
+//                    if (libraryMember == null) {
+//                        isValid = false;
+//                    }
 //
-//            if (book.isPresent() && member.isPresent() && validationUtils.isValid(record)) {
-//                BorrowingRecord recordToSave = modelMapper.map(record, BorrowingRecord.class);
-//                recordToSave.setMember(member.get());
+//                    Book bookByTitle = bookRepository.findByTitle(borrowingRecordSeedDto.getTitle().getTitle()).orElse(null);
 //
-//                recordToSave.setBook(book.get());
-////                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-////                String borrowDateString = record.getBorrowDate();
-////                LocalDate borrowLocalDate = LocalDate.parse(borrowDateString, formatter);
-////                recordToSave.setBorrowDate(borrowLocalDate);
-////
-////                String returnDateString = record.getReturnDate();
-////                LocalDate returnLocalDate = LocalDate.parse(returnDateString, formatter);
-////                recordToSave.setReturnDate(returnLocalDate);
+//                    if (bookByTitle == null) {
+//                        isValid = false;
+//                    }
 //
-//                this.borrowingRecordRepository.save(recordToSave);
-//                String formattedDate = recordToSave.getBorrowDate()
-//                        .format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
-//                sb.append(String.format("Successfully imported borrowing record %s - %s%n"
-//                        , recordToSave.getBook().getTitle(), formattedDate));
-//            }
-//        }
-
-
-        xmlParser
-                .fromFile(Path.of(BORROWING_RECORD_PATH).toFile(), BorrowingRecordRootDTO.class)
-                .getRecordsDTO()
-                .stream()
-                .filter(borrowingRecordSeedDto -> {
-                    boolean isValid = validationUtils.isValid(borrowingRecordSeedDto);
-
-                    LibraryMember libraryMember = this.libraryMemberRepository.findById(borrowingRecordSeedDto.getMember().getId()).orElse(null);
-                    if (libraryMember == null) {
-                        isValid = false;
-                    }
-
-                    Book bookByTitle = bookRepository.findByTitle(borrowingRecordSeedDto.getTitle().getTitle()).orElse(null);
-
-                    if (bookByTitle == null) {
-                        isValid = false;
-                    }
-
-                    sb
-                            .append(isValid
-                                    ? String.format("Successfully imported borrowing record %s - %s",
-                                    borrowingRecordSeedDto.getTitle().getTitle(),
-                                    borrowingRecordSeedDto.getBorrowDate())
-                                    : "Invalid borrowing record")
-                            .append(System.lineSeparator());
-
-                    return isValid;
-                })
-                .map(borrowingRecordDto -> {
-                    BorrowingRecord borrowingRecord = modelMapper.map(borrowingRecordDto, BorrowingRecord.class);
-
-                    LibraryMember libraryMember = libraryMemberRepository.findById(borrowingRecordDto.getMember().getId()).get();
-                    Book bookByTitle = bookRepository.findByTitle(borrowingRecordDto.getTitle().getTitle()).get();
-
-                    borrowingRecord.setBook(bookByTitle);
-                    borrowingRecord.setMember(libraryMember);
-
-                    return borrowingRecord;
-                })
-                .forEach(borrowingRecordRepository::save);
-
+//                    sb.append(isValid
+//                                    ? String.format("Successfully imported borrowing record %s - %s",
+//                                    borrowingRecordSeedDto.getTitle().getTitle(),
+//                                    borrowingRecordSeedDto.getBorrowDate())
+//                                    : "Invalid borrowing record")
+//                            .append(System.lineSeparator());
+//
+//                    return isValid;
+//                })
+//                .map(borrowingRecordDto -> {
+//                    BorrowingRecord borrowingRecord = modelMapper.map(borrowingRecordDto, BorrowingRecord.class);
+//
+//                    LibraryMember libraryMember = libraryMemberRepository.findById(borrowingRecordDto.getMember().getId()).get();
+//                    Book bookByTitle = bookRepository.findByTitle(borrowingRecordDto.getTitle().getTitle()).get();
+//
+//                    borrowingRecord.setBook(bookByTitle);
+//                    borrowingRecord.setMember(libraryMember);
+//
+//                    return borrowingRecord;
+//                })
+//                .forEach(borrowingRecordRepository::save);
 
         return sb.toString().trim();
     }
