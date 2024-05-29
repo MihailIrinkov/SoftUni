@@ -1,0 +1,40 @@
+
+spring.datasource.driverClassName=com.mysql.cj.jdbc.Driver
+spring.datasource.url=jdbc:mysql://localhost:3306/mobilele?allowPublicKeyRetrieval=true&useSSL=false&createDatabaseIfNotExist=true&serverTimezone=UTC
+spring.datasource.username=${db_username}
+spring.datasource.password=${db_password}
+#JPA Properties
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQL8Dialect
+spring.jpa.properties.hibernate.format_sql=FALSE
+spring.jpa.properties.hibernate.show_sql=FALSE
+
+spring.jpa.defer-datasource-initialization=true
+
+spring.jpa.hibernate.ddl-auto=update
+#Logging Levels -> Disable the default loggers
+logging.level.org=WARN
+logging.level.blog=WARN
+#Show SQL executed with parameter bindings
+logging.level.org.hibernate.SQL=DEBUG
+logging.level.org.hibernate.type.descriptor=TRACE
+#logging.level.org.springframework.security=TRACE
+
+spring.mvc.hiddenmethod.filter.enabled=true
+
+spring.sql.init.mode=never
+
+mobilele.default.admin.pass= ${DEFAULT_ADMIN_PASS_TEST}
+mobilele.remember.me.key=${REMEMBER_ME_KEY}
+
+open.exchange.rates.schema=https
+open.exchange.rates.host=openexchangerates.org
+open.exchange.rates.path=/api/latest.json
+open.exchange.rates.app_id=${APP_ID:test}
+open.exchange.rates.symbols=EUR,BGN
+open.exchange.rates.enabled=false
+
+#spring.mail.mobilele="mobilele@example.com"
+#spring.mail.host=localhost
+#spring.mail.port=1025
+#spring.mail.username=${MAIL_USER:softuni}
+#spring.mail.password=${MAIL_PASSWORD:softuni}

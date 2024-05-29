@@ -1,0 +1,99 @@
+spring:
+  datasource:
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/mobilele?allowPublicKeyRetrieval=true&useSSL=false&createDatabaseIfNotExist=true&serverTimezone=UTC
+    username: ${db_username}
+    password: ${db_password}
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    defer-datasource-initialization: true
+    properties:
+      hibernate:
+        format_sql: true
+    hibernate:
+      ddl-auto: update
+  sql:
+    init:
+      mode: never
+#  security:
+#    oauth2:
+#      client:
+#        registration:
+#          github:
+#            client-id: ${GITHUB_CLIENT:}
+#            client-secret: ${GITHUB_SECRET:}
+#            scope: user:email
+  mvc:
+    hiddenmethod:
+      filter:
+        enabled: true
+
+mobilele:
+  default.admin.pass: ${DEFAULT_ADMIN_PASS_TEST}
+  remember.me.key: ${REMEMBER_ME_KEY}
+
+
+logging:
+  level:
+    org.hibernate.SQL: DEBUG
+    org.hibernate.orm.jdbc.bind: TRACE
+
+
+open.exchange.rates:
+  schema: https
+  host: openexchangerates.org
+  path: /api/latest.json
+  app_id: ${APP_ID:test}
+  symbols: EUR,BGN
+  enabled: false
+
+mail:
+  mobilele: "mobilele@example.com"
+  host: localhost
+  port: 3333
+  username: test@example.com
+  password: topsecret
+
+#spring:
+#  datasource:
+#    driverClassName: com.mysql.cj.jdbc.Driver
+#    url: jdbc:mysql://${MYSQL_HOST:localhost}:3306/mobilele?allowPublicKeyRetrieval=true&useSSL=false&createDatabaseIfNotExist=true&serverTimezone=UTC
+#    username: ${db_username}
+#    password: ${db_password}
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#  jpa:
+#    database-platform: org.hibernate.dialect.MySQLDialect
+#    defer-datasource-initialization: true
+#    properties:
+#      hibernate:
+#        format_sql: true
+#    hibernate:
+#      ddl-auto: update
+#
+##spring:
+##  datasource:
+##    driverClassName: com.mysql.cj.jdbc.Driver
+##    url: jdbc:mysql://${MYSQL_HOST:localhost}:3306/mobilele?allowPublicKeyRetrieval=true&useSSL=false&createDatabaseIfNotExist=true&serverTimezone=UTC
+##    username: ${db_username}
+##    password: ${db_password}
+##  jpa:
+##    database-platform: org.hibernate.dialect.MySQLDialect
+##    defer-datasource-initialization: true
+##    properties:
+##      hibernate:
+##        format_sql: true
+##    hibernate:
+##      ddl-auto: update
+#  sql:
+#    init:
+#      mode: never
+#
+#default.admin.pass: ${DEFAULT_ADMIN_PASS_TEST}
+#
+#open.exchange.rates:
+#  schema: https
+#  host: openexchangerates.org
+#  path: /api/latest.json
+#  app_id: ${APP_ID:test}
+#  symbols: EUR,BGN
+#  enabled: false
