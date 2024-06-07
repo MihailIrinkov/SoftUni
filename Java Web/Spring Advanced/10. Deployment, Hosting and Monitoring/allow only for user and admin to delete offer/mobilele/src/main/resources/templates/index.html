@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head th:replace="~{fragments/head}">
+</head>
+
+<body>
+
+<div>
+    <nav th:replace="~{fragments/navbar}"></nav>
+</div>
+
+<div class="container-fluid">
+    <h5 class="text-center text-white mt-5">Welcome to MobiLeLeLe,
+        <th:block sec:authorize="isAuthenticated()">
+            <th:block sec:authentication="name"></th:block>
+        </th:block>
+        <th:block sec:authorize="!isAuthenticated()">
+            Anonymous!
+        </th:block>
+
+    </h5>
+
+</div>
+
+<div>
+    <footer></footer>
+</div>
+
+</body>
+</html>
