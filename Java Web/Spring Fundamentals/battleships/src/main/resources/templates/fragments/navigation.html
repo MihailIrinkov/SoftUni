@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Navigation</title>
+</head>
+<body>
+<nav class="navbar navbar-expand-md navbar-dark fixed-top rounded">
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link"
+                   th:unless="${@loggedUser.isLogged()}"
+                   th:href="@{/}">Home</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link"
+                   th:if="${@loggedUser.isLogged()}"
+                   th:href="@{/home}">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link"
+                   th:unless="${@loggedUser.isLogged()}"
+                   th:href="@{/login}">Login</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link"
+                   th:unless="${@loggedUser.isLogged()}"
+                   th:href="@{/register}">Register</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link"
+                   th:if="${@loggedUser.isLogged()}"
+                   th:href="@{/ship-add}">Add Ship</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link"
+                   th:if="${@loggedUser.isLogged()}"
+                   th:href="@{/logout}">Logout</a>
+            </li>
+        </ul>
+        <img width="50px" src="/images/ufo.png" alt="Ufo image">
+    </div>
+</nav>
+</body>
+</html>
