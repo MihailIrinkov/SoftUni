@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Shopping list App</title>
+    <link rel="stylesheet" href="/css/reset-css.css"/>
+    <link rel="stylesheet" href="/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/css/style.css"/>
+</head>
+<body>
+    <header th:replace="~{fragments/navigation}">
+
+    </header>
+    <main>
+        <div class="container bg-blur rounded mt-5 ">
+            <h1>Welcome to Shopping List App</h1>
+            <hr class="my-3 bg-white w-50"/>
+            <p class="h4">The application is here to help us keep in mind our shopping needs.</p>
+            <hr class="my-3 bg-white w-75" />
+            <h3>
+                <a class="text-primay" th:unless="${@loggedUser.isLogged()}" th:href="@{/login}">Login</a>
+<!--                <a class="text-primay" th:if="${@loggedUser.isLogged()}" th:href="@{/home}">Login</a>-->
+                if you have an account or
+                <a class="text-primay" th:unless="${@loggedUser.isLogged()}" th:href="@{/register}">Register</a>
+<!--                <a class="text-primay" th:if="${@loggedUser.isLogged()}" th:href="@{/home}">Register</a>-->
+                now and check our deals.
+            </h3>
+        </div>
+    </main>
+    <footer class="footer bg-transparent  py-2">
+       <div class="container-fluid text-center">
+			<div class="footer-background h5 text-white">
+            &copy; Spring team 2021. All rights reserved.
+			</div>
+		</div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Shopping list App</title>
+    <link rel="stylesheet" href="/css/reset-css.css"/>
+    <link rel="stylesheet" href="/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/css/style.css"/>
+</head>
+<body>
+<header th:replace="~{fragments/navigation}">
+
+</header>
+<main>
+    <h1 class="text-center mt-2"><span class="badge badge-pill badge-dark">Login</span></h1>
+    <hr class="hr-3 w-25 bg-white"/>
+    <form class="mx-auto w-25 bg-blur"
+          th:action="@{/login}"
+          th:method="POST"
+          th:object="${userLoginBindingModel}">
+<!--        <small class="text-danger">Error message</small>-->
+        <br/>  
+        <small th:if="${hasError}" class="text-danger">Incorrect username or password!</small>
+
+<!--        <div th:if="${#fields.hasErrors('username')}"-->
+<!--             th:errors="*{username}" class="text-danger"></div>-->
+        <small th:if="${#fields.hasErrors('username')}"
+               th:errors="*{username}" class="text-danger">Username error message</small>
+<!--        <div th:if="${#fields.hasErrors('password')}"-->
+<!--             th:errors="*{password}" class="text-danger"></div>-->
+                    <small th:if="${#fields.hasErrors('password')}"
+                           th:errors="*{password}" class="text-danger">Username error message</small>
+
+        <div class="form-group">
+            <div class="label-holder text-white d-flex justify-content-center">
+                <label for="username" class="h3 mb-2">Username</label>
+            </div>
+            <input type="text" class="form-control"
+                   id="username"
+                   name="username"
+            th:field="*{username}"
+            th:errorclass="bg-danger"/>
+<!--            <small th:if="${#fields.hasErrors('username')}"-->
+<!--                   th:errors="*{username}" class="text-danger">Username error message</small>-->
+        </div>
+        <div class="form-group">
+            <div class="label-holder text-white d-flex justify-content-center">
+                <label for="password" class="h3 mb-2">Password</label>
+            </div>
+            <input type="password" class="form-control"
+                   id="password"
+                   name="password"
+            th:field="*{password}"
+            th:errorclass="bg-danger"/>
+<!--            <small th:if="${#fields.hasErrors('password')}"-->
+<!--                   th:errors="*{password}" class="text-danger">Username error message</small>-->
+        </div>
+        <div class="button-holder d-flex justify-content-center">
+            <button type="submit" class="btn btn-warning  mb-3">Login</button>
+        </div>
+    </form>
+</main>
+
+<footer class="footer bg-transparent  py-2">
+    <div class="container-fluid text-center">
+		<div class="footer-background h5 text-white">
+           &copy; Spring team 2021. All rights reserved.
+		</div>
+	</div>
+</footer>
+</body>
+</html>
