@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>GIRA</title>
+    <link rel="icon" href="/img/projectLogo.png" type="image/icon type">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/reset-css.css">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<div class="page-container">
+    <header>
+        <nav class="navbar navbar-expand-lg ">
+      <span class="col-md-1">
+        <img src="/img/projectLogo.png" alt="Logo" width="50" height="50">
+      </span>
+            <a class="navbar-brand active col-md-1 title" th:if="${@loggedUser.isLogged()}" th:href="@{/home}">Gira</a>
+            <a class="navbar-brand active col-md-1 title" th:unless="${@loggedUser.isLogged()}" th:href="@{/}">Gira</a>
+            <div class="collapse navbar-collapse  d-flex justify-content-end">
+                <ul class="navbar-nav row">
+                    <li class="nav-item col-md-6">
+                        <a class="button text-nowrap" th:if="${@loggedUser.isLogged()}" th:href="@{/add-task}">Add Task</a>
+                    </li>
+                    <li class="nav-item col-md-5">
+                        <a class="button" th:if="${@loggedUser.isLogged()}" th:href="@{/logout}">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main class="content-wrap">
+        <h1 class="text-center mt-2"><span class="badge badge-pill badge-dark">Tasks</span></h1>
+        <hr class="hr-3 w-75 bg-white"/>
+        <form class="mx-auto w-75 "
+              th:method="GET"
+              th:action="@{/home}"
+              th:object="${tasks}">
+
+            <div class="card-group task-card" th:each="task : ${tasks.getTasks()}">
+                <div class="card">
+
+                    <div class="card-title">
+                        <h5 class="card-title">Name</h5>
+                    </div>
+                    <div class="card-footer">
+                        <small th:text="|${task.getName()}|">Repair Laptop</small>
+                    </div>
+                </div>
+                <div class="card">
+
+                    <div class="card-title">
+                        <h5 class="card-title">Assigned to</h5>
+                    </div>
+                    <div class="card-footer">
+                        <small th:text="|${task.getUser().getName()}|">George</small>
+                    </div>
+                </div>
+                <div class="card">
+
+                    <div class="card-title">
+                        <h5 class="card-title">Classification</h5>
+                    </div>
+                    <div class="card-footer" th:switch="${task.getClassification().toString()}">
+                        <small class="classifications SUPPORT"
+                               th:case="'SUPPORT'"
+                               th:text="|${task.getClassification()}|">SUPPORT</small>
+                        <small class="classifications FEATURE"
+                               th:case="'FEATURE'"
+                               th:text="|${task.getClassification()}|">SUPPORT</small>
+                        <small class="classifications OTHER"
+                               th:case="'OTHER'"
+                               th:text="|${task.getClassification()}|">SUPPORT</small>
+                        <small class="classifications BUG"
+                               th:case="'BUG'"
+                               th:text="|${task.getClassification()}|">SUPPORT</small>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-title">
+                        <h5 class="card-title">Due Date</h5>
+                    </div>
+                    <div class="card-footer">
+                        <small th:text="|${task.getDueDate()}|">2020-08-30</small>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-title">
+                        <h5 class="card-title">Progress</h5>
+                    </div>
+                    <div class="card-footer">
+                        <small th:text="|${task.getProgress()}|">OPEN</small>
+                    </div>
+                </div>
+
+                <a class="button prBtn"
+                th:href="@{/manage-task/{name}(name = ${task.getName()})}">Progress</a>
+            </div>
+
+        </form>
+    </main>
+
+    <footer class="footer">
+        <div class="container-fluid text-center">
+            <div class="footer-background h6">
+                &copy; Spring team 2020. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+</div>
+</body>
+</html>
