@@ -9,7 +9,7 @@ import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "comments")
-public class Comment extends BaseEntity{
+public class Comment extends BaseEntity {
 
 
     private Boolean approved;

@@ -4,15 +4,18 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "pictures")
 public class Picture extends BaseEntity{
 
     @Column
+    @NotNull
     private String title;
 
     @Column(columnDefinition = "TEXT")
+    @NotNull
     private String url;
 
     @ManyToOne
