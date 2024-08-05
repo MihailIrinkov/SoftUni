@@ -2,6 +2,7 @@ package softuni.project.ArtGallery.model.dto.binding;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Positive;
 import jakarta.validation.constraints.Size;
 
 public class UserRegisterBindingModel {
@@ -10,13 +11,18 @@ public class UserRegisterBindingModel {
     @Size(min = 3, message = "Username length must be more than 3 characters")
     private String username;
 
+    @NotNull
+    @Size(min = 3)
     private String fullName;
 
     @Email
     private String email;
 
+    @Positive
     private int age;
 
+    @NotNull
+    @Size(min = 4)
     private String password;
 
     private String confirmPassword;
