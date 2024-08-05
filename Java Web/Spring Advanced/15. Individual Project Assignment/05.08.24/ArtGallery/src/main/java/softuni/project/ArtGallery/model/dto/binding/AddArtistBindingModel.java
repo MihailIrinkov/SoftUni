@@ -1,6 +1,8 @@
 package softuni.project.ArtGallery.model.dto.binding;
 
 
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 import org.springframework.web.multipart.MultipartFile;
@@ -13,9 +15,11 @@ public class AddArtistBindingModel {
 
 
     @Size(min = 3, message = "Name length must be more than 3 characters")
+    @NotNull
     private String name;
 
     @Size(min = 5, message = "Description length must be more than 5 characters")
+    @NotNull
     private String description;
 
     @FileAnnotation(contentTypes = "text/xml")
