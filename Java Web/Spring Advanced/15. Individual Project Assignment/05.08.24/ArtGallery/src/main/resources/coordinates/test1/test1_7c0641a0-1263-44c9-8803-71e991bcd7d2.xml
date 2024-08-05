@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="9d27f1b8-49fa-4e23-91d7-5bcc09ebd3e2" name="Changes" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Enum" />
+        <option value="HTML File" />
+        <option value="Interface" />
+        <option value="AnnotationType" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 0
+}</component>
+  <component name="ProjectId" id="2aRplcv7P4EYECzqHM75q9mzy66" />
+  <component name="ProjectViewState">
+    <option name="autoscrollToSource" value="true" />
+    <option name="openDirectoriesWithSingleClick" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "Spring Boot.PathfinderApplication.executor": "Run",
+    "WebServerToolWindowFactoryState": "false",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/HP/Desktop/Spring Data/JavaDB SpringDataExam 13 August 2023",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
+    ]
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="bg.softuni.pathfinder.validators" />
+      <recent name="bg.softuni.pathfinder.model.dto.view" />
+      <recent name="bg.softuni.pathfinder.service.impl" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\HP\Desktop\Spring Fundamentals\6. Spring Introduction (MVC)\pathfinder\src\main\resources\templates" />
+      <recent name="C:\Users\HP\Desktop\Spring Fundamentals\6. Spring Introduction (MVC)\pathfinder\src\main\resources\static" />
+      <recent name="C:\Users\HP\Desktop\Spring Fundamentals\6. Spring Introduction (MVC)\pathfinder\src\main\resources" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="PathfinderApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <envs>
+        <env name="db_password" value="12345" />
+        <env name="db_username" value="root" />
+      </envs>
+      <module name="pathfinder" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="bg.softuni.pathfinder.PathfinderApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="9d27f1b8-49fa-4e23-91d7-5bcc09ebd3e2" name="Changes" comment="" />
+      <created>1704291406383</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1704291406383</updated>
+      <workItem from="1704291407416" duration="13698000" />
+      <workItem from="1704618319624" duration="5171000" />
+      <workItem from="1704984179592" duration="178000" />
+      <workItem from="1705042151957" duration="42003000" />
+      <workItem from="1705387079777" duration="692000" />
+      <workItem from="1707114855195" duration="50000" />
+      <workItem from="1707642535747" duration="2428000" />
+      <workItem from="1707724788967" duration="13071000" />
+      <workItem from="1707811239218" duration="25261000" />
+      <workItem from="1707976989834" duration="4739000" />
+      <workItem from="1707982909178" duration="198000" />
+      <workItem from="1707983119278" duration="222000" />
+      <workItem from="1708424917606" duration="298000" />
+      <workItem from="1708425859827" duration="705000" />
+      <workItem from="1709790666132" duration="114000" />
+      <workItem from="1709794157087" duration="167000" />
+      <workItem from="1710168876462" duration="125000" />
+      <workItem from="1715150139149" duration="13116000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/bg/softuni/pathfinder/service/impl/RouteServiceImpl.java</url>
+          <line>90</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/bg/softuni/pathfinder/service/impl/AuthenticationServiceImpl.java</url>
+          <line>43</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/pathfinder$PathfinderApplication.ic" NAME="PathfinderApplication Coverage Results" MODIFIED="1707919428704" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+  </component>
+</project>
