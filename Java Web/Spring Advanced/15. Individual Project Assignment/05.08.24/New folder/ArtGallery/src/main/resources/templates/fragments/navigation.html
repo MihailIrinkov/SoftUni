@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<header th:fragment="navigation">
+    <nav class="main-nav">
+        <ul>
+            <li>
+                <a th:href="@{/}">Home</a>
+            </li>
+            <li th:unless="${@loggedUserHelperService.isLogged()}">
+                <a th:href="@{/users/login}">Login</a>
+            </li>
+            <li th:unless="${@loggedUserHelperService.isLogged()}">
+                <a th:href="@{/users/register}">Register</a>
+            </li>
+            <li>
+                <a th:href="@{/about}">About</a>
+            </li>
+            <li th:if="${@loggedUserHelperService.isLogged()}">
+                <a th:href="@{/artists/add}">Add new artist</a>
+            </li>
+            <li th:if="${@loggedUserHelperService.isLogged()}">
+                <a th:href="@{/users/profile}">Profile</a>
+            </li>
+            <li th:if="${@loggedUserHelperService.isLogged() and @loggedUserHelperService.isAdmin()}">
+                <a th:href="@{/admin}">Admin</a>
+            </li>
+            <li th:if="${@loggedUserHelperService.isLogged()}">
+
+            <form th:action="@{/users/logout}" th:method="POST">
+                <input class="mybtn" type="submit" value="Logout" />
+            </form>
+
+            </li>
+
+        </ul>
+    </nav>
+</header>
+</body>
