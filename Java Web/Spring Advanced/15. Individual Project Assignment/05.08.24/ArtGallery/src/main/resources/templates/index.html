@@ -30,13 +30,10 @@
         </div>
         <div class="top-box top-box-a">
             <h4>Boost Your Business</h4>
-<!--            <h4><span id="box-a-temp">15</span><span>&#8451;</span></h4>-->
             <img id="box-a-img" src="/images/yorAddHere.png" height="150px" alt="">
         </div>
         <div class="top-box top-box-b">
             <h4>Boost Your Business</h4>
-<!--            <h4><span id="box-b-temp">27</span><span>&#8451;</span></h4>-->
-<!--            <img id="box-b-img" src="/images/cloudy.png" height="150px" alt="">-->
             <img id="box-a-img" src="/images/yorAddHere.png" height="150px" alt="">
         </div>
     </section>
@@ -78,7 +75,6 @@
         <section class="road">
             <img th:if="${mostCommentedArtist.imageUrl != null}"
                  th:src="@{/images/{url}(url=${mostCommentedArtist.imageUrl})}">
-<!--                    th:src="${'\images\' + mostCommentedArtist.imageUrl}" alt="">-->
             <img th:if="${mostCommentedArtist.imageUrl == null}" src="/images/most-commented.jpg" alt="">
             <div>
                 <h2 th:text="${mostCommentedArtist.name}">The most commented artist</h2>

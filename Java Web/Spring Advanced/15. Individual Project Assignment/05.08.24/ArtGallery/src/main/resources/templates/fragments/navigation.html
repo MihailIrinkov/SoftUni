@@ -32,21 +32,13 @@
                 <a th:href="@{/admin}">Admin</a>
             </li>
             <li th:if="${@loggedUserHelperService.isLogged()}">
-                <!--                    if we use PosMapping in UserController-->
-                <!--                    <form th:action="@{/users/logout}" th:method="POST">-->
-                <!--                        <input class="mybtn" type="submit" value="Logout" />-->
-                <!--                    </form>-->
 
-<!--                <li th:if="${@loggedUserHelperService.isLogged()}">-->
             <form th:action="@{/users/logout}" th:method="POST">
                 <input class="mybtn" type="submit" value="Logout" />
             </form>
-                <!--                <a th:href="@{/users/logout}">Logout</a>-->
+
             </li>
-            <!--                <li>-->
-            <!--                    <th:block th:text="${@loggedUser.username} == null ? 'no user'-->
-            <!--                    : ${'username: ' + @loggedUser.username}"></th:block>-->
-            <!--                </li>-->
+
         </ul>
     </nav>
 </header>
