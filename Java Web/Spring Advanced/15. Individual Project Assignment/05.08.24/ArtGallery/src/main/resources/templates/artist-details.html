@@ -27,25 +27,14 @@
     <div class="details-main">
         <section class="artist-info text-center">
             <h4 th:text="${artists.name}" id="track-name"></h4>
-<!--            <p>Total distance: <span id="totalDistance"></span> km</p>-->
             <p>Author name: <span th:text="${artists.getAuthorName}" id="authorName"></span></p>
-<!--            <h4>Difficulty Level (1-3):</h4>-->
-<!--            <div class="level">-->
-<!--                <p th:style="${artist.level} == 'BEGINNER' ? 'visibility: visible' : 'visibility: hidden'"><img-->
-<!--                        class="level-img" src="/images/difficulty-level.png" alt=""></p>-->
-<!--                <p th:style="${artist.level} == 'INTERMEDIATE' ? 'visibility: visible' : 'visibility: hidden'"><img-->
-<!--                        class="level-img" src="/images/difficulty-level.png" alt=""></p>-->
-<!--                <p th:style="${artist.level} == 'ADVANCED' ? 'visibility: visible' : 'visibility: hidden'"><img-->
-<!--                        class="level-img" src="/images/difficulty-level.png" alt=""></p>-->
-
-<!--            </div>-->
             <div>
                 <h4>Choose picture</h4>
                 <form th:action="@{/artists/upload-picture}" method="POST" enctype="multipart/form-data">
                     <input type="hidden" id="id" name="id" th:value="${artists.id}">
                     <div class="form-group">
                         <label>
-<!--                            <input type="text" name="title">-->
+
                         </label>
                     </div>
                     <div class="image-upload">
@@ -124,7 +113,7 @@
                     </div>
                 </div>
 
-                <div th:if="${@loggedUserHelperService.isOnlyUser()}"
+                <div th:if="${@loggedUserHelperService.isOnlyUser() or !@loggedUserHelperService.isLogged()}"
                      class="form-group"
                      th:each="comment : ${artists.comments}">
                     <div th:if="${comment.approved}">
