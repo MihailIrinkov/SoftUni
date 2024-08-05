@@ -10,16 +10,15 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import softuni.project.ArtGallery.exceptions.ArtistNotFoundException;
 import softuni.project.ArtGallery.model.dto.binding.CreateCommentBindingModel;
-import softuni.project.ArtGallery.model.dto.view.PictureViewModel;
 import softuni.project.ArtGallery.model.dto.view.ArtistCategoryViewModel;
 import softuni.project.ArtGallery.model.dto.view.ArtistDetailsViewModel;
+import softuni.project.ArtGallery.model.dto.view.PictureViewModel;
+import softuni.project.ArtGallery.model.entity.Artist;
 import softuni.project.ArtGallery.model.entity.Comment;
 import softuni.project.ArtGallery.model.entity.Picture;
-import softuni.project.ArtGallery.model.entity.Artist;
-import softuni.project.ArtGallery.repository.CategoryRepository;
 import softuni.project.ArtGallery.repository.ArtistRepository;
+import softuni.project.ArtGallery.repository.CategoryRepository;
 import softuni.project.ArtGallery.repository.UserRepository;
-//import softuni.service.helpers.LoggedUserHelperService;
 
 import java.time.LocalDateTime;
 import java.util.Optional;
@@ -27,20 +26,14 @@ import java.util.Optional;
 @Configuration
 @RequiredArgsConstructor
 public class AppConfig {
-
-    private final CategoryRepository categoryRepository;
-    private final UserRepository userRepository;
+    
     private final ArtistRepository artistRepository;
-//    private final LoggedUserHelperService loggedUserHelperService;
 
-//    private final RoleService roleService;
 
     @Bean
     public ModelMapper modelMapper() {
         final ModelMapper modelMapper = new ModelMapper();
 
-//        Provider<User> loggedUserProvider = req -> getLoggeduser();
-//        Provider<String> youtubeSubUrlProvider = req -> YouTubeUtil.getUrl((String) req.getSource());
 
         modelMapper.createTypeMap(Artist.class, ArtistDetailsViewModel.class)
                 .addMappings(mapper -> mapper
@@ -97,11 +90,6 @@ public class AppConfig {
         return modelMapper;
     }
 
-
-//    @Bean
-//    public ModelMapper modelMapper(){
-//        return new ModelMapper();
-//    }
 
     @Bean
     public PasswordEncoder passwordEncoder() {
