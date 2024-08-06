@@ -1,0 +1,123 @@
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>ArtGallery</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/mobile.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+          integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
+          integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+          crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
+            integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
+            crossorigin=""></script>
+</head>
+<body>
+<div class="wrapper">
+    <!-- Navigation -->
+<div th:replace="~{fragments/navigation}"></div>
+    <!-- Top Container -->
+    <section class="top-container">
+        <div class="showcase">
+            <h1>Find amazing artists</h1>
+            <p>Make your home, office or villa unique! Find amazing paintings!</p>
+            <a href="/artists" class="btn">To artists</a>
+        </div>
+        <div class="top-box top-box-a">
+            <h4>Boost Your Business</h4>
+            <img id="box-a-img" src="/images/yorAddHere.png" height="150px" alt="">
+        </div>
+        <div class="top-box top-box-b">
+            <h4>Boost Your Business</h4>
+            <img id="box-a-img" src="/images/yorAddHere.png" height="150px" alt="">
+        </div>
+    </section>
+
+    <!-- Boxes Section -->
+    <section class="boxes">
+        <a th:href="@{/artists/TEMPERA}" class="main-btn" >
+            <div class="box">
+                <img src="/images/Tempera-Symbol.jpg" height="150px" alt="">
+                <h3>Tempera</h3>
+                <p>Do looking for something beautiful?</p>
+            </div>
+        </a>
+        <a th:href="@{/artists/WATERCOLOR}" class="main-btn" >
+            <div class="box">
+                <img src="/images/watercolor-symbol.jpg" height="150px" alt="">
+                <h3>Watercolor</h3>
+                <p>Do looking for something beautiful?</p>
+            </div>
+        </a>
+        <a th:href="@{/artists/ACRYLIC}" class="main-btn" >
+            <div class="box">
+                <img src="/images/acrylic-symbol.jpg" height="150px" alt="">
+                <h3>Acrylic</h3>
+                <p>Do looking for something beautiful?</p>
+            </div>
+        </a>
+        <a th:href="@{/artists/OIL}" class="main-btn" >
+            <div class="box">
+                <img src="/images/oil-symbol.jpeg" height="150px" alt="">
+                <h3>Oil</h3>
+                <p>Do looking for something beautiful?</p>
+            </div>
+        </a>
+    </section>
+
+    <!-- Info Section -->
+    <div th:if="${mostCommentedArtist != null}">
+        <section class="road">
+            <img th:if="${mostCommentedArtist.imageUrl != null}"
+                 th:src="@{/images/{url}(url=${mostCommentedArtist.imageUrl})}">
+            <img th:if="${mostCommentedArtist.imageUrl == null}" src="/images/most-commented.jpg" alt="">
+            <div>
+                <h2 th:text="${mostCommentedArtist.name}">The most commented artist</h2>
+                <p th:text="${mostCommentedArtist.description}">Read more about the most commented artist and don't miss the
+                    chance to see his / her paintings.</p>
+                <a th:href="@{/artists/details/{id}(id=${mostCommentedArtist.id})}" class="btn">Learn More</a>
+            </div>
+        </section>
+
+        <section class="gallery">
+            <img th:each="picture : ${mostCommentedArtist.pictures}"
+                 th:src="${#strings.contains(picture.src, 'cloudinary') ? picture.src : '\images\' + picture.src}"
+                 th:alt="${picture.alt}"
+                 width="200px"
+                 height="200px">
+        </section>
+    </div>
+
+    <div th:if="${mostCommentedArtist == null}">
+
+        <section class="road">
+            <img src="/images/angel II.jpg" alt="">
+            <div>
+                <h2>The most commented artist</h2>
+                <p>Read more about the most commented artist and don't miss the
+                    chance to see his / her paintings.</p>
+                <a th:href="@{/artists}" class="btn">Learn More</a>
+            </div>
+        </section>
+        <!-- Portfolio -->
+        <section class="gallery">
+            <img src="/images/turnovo001.jpg" width="200px" height="200px" alt="">
+            <img src="/images/sunn.jpg" width="200px" height="200px" alt="">
+        </section>
+    </div>
+
+
+
+    <!-- <script th:src="@{/js/weather.js}"></script> -->
+</div>
+<!-- Wrapper Ends -->'
+
+<div th:replace="~{fragments/footer}"></div>
+</body>
+
+</html>
