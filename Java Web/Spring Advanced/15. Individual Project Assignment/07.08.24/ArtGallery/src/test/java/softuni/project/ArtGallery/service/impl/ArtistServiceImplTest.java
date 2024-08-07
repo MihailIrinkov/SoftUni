@@ -1,5 +1,6 @@
 package softuni.project.ArtGallery.service.impl;
 
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -54,6 +55,11 @@ class ArtistServiceImplTest {
                 mockUserService,
                 mockModelMapper,
                 mockMapper);
+    }
+
+    @AfterEach
+    void tearDown(){
+        mockArtistRepository.deleteAll();
     }
 
     @Test
