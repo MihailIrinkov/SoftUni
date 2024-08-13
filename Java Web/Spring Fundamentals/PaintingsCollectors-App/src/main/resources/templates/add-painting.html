@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/commons::head"></head>
+<body>
+<header th:replace="fragments/commons::nav"></header>
+<main>
+    <form class="welcome add-offer-form"
+          th:method="POST"
+          th:action="@{/add-painting}"
+          th:object="${addPaintingBindingModel}">
+    <h1 class="text-center mt-2"><span class="badge badge-pill badge-dark">Add painting</span></h1>
+
+        <div class="form-group">
+            <div class="label-holder text-white textCol d-flex justify-content-center">
+                <label for="name" class="h4 mb-2">Name</label>
+            </div>
+            <input type="text" class="form-control" id="name" name="name"
+            th:field="*{name}"/>
+            <small class="danger"
+                   th:if="${#fields.hasErrors('name')}"
+                   th:errors="*{name}">Name error message</small>
+        </div>
+
+        <div class="form-group">
+            <div class="label-holder text-white textCol d-flex justify-content-center">
+                <label for="author" class="h4 mb-2">Author</label>
+            </div>
+            <input type="text" class="form-control" id="author" name="author"
+            th:field="*{author}"/>
+            <small class="danger"
+            th:if="${#fields.hasErrors('author')}"
+            th:errors="*{author}">Author error message</small>
+        </div>
+
+        <div class="form-group">
+            <div class="label-holder text-white textCol d-flex justify-content-center">
+                <label for="image" class="h4 mb-2">Image URL</label>
+            </div>
+            <textarea type="text" class="form-control" id="image" name="image"
+            th:field="*{url}"></textarea>
+            <small class="danger"
+            th:if="${#fields.hasErrors('url')}"
+            th:errors="*{url}">Image URL error message</small>
+        </div>
+
+        <div class="form-group">
+            <div class="text-white label-holder d-flex justify-content-center">
+                <label for="style" class="h4 mb-2">Style</label>
+            </div>
+            <select class="browser-default custom-select" id="style" name="style"
+            th:field="*{style}">
+                <option value="">Select style</option>
+                <option value="IMPRESSIONISM">Impressionism</option>
+                <option value="ABSTRACT">Abstract</option>
+                <option value="EXPRESSIONISM">Expressionism</option>
+                <option value="SURREALISM">Surrealism</option>
+                <option value="REALISM">Realism</option>
+            </select>
+
+            <small class="danger"
+            th:if="${#fields.hasErrors('style')}"
+            th:errors="*{style}">Style error message</small>
+        </div>
+
+        <div class="button-holder d-flex justify-content-center">
+            <button type="submit" class="btn btn-info  mb-3">Add painting</button>
+        </div>
+
+    </form>
+</main>
+<footer th:replace="fragments/commons::footer"></footer>
+</body>
+</html>

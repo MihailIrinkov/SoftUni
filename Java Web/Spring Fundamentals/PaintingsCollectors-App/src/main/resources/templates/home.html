@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/commons::head"></head>
+<body>
+<header th:replace="fragments/commons::nav"></header>
+<main>
+
+    <div class="welcome mt-1 mb-4">
+        <p class="mySticky bg-gray text-dark user" th:text="|${@loggedUser.getUsername()}|">Welcome {userName}</p>
+        <div class="row mt-1 mb-2">
+            <div class="col-6 mt-1 mb-1">
+                <div>
+                    <div class="home-fields" style="height: 40vh; overflow: auto">
+                        <h3 class="my-paintings">My Paintings</h3>
+                        <table class="table">
+                            <tr class="my-paintings">
+                                <td scope="row" style="width: 5%">Image
+                                </td>
+                                <td>Name</td>
+                                <td>Author</td>
+                                <td>Style</td>
+                                <td>Remove</td>
+                            </tr>
+                        </table>
+                        <table class="table table-striped table-dark">                 <!--//TODO--><!--  Hint-->
+                            <tr class="my-paintings" th:each="painting : ${homeViewDTO.getMyPaintings()}">                                               <!--  <tr class="my-paintings" th:each="p : ${YourPaintings.getPaintings}">-->
+                                <td scope="row" style="width: 5%">                                        <!--  <td scope="row" style="width: 5%">-->
+                                    <img class="mr-2 " width="35px" height="35px"
+                                         th:src="${painting.url}" th:alt="${painting.name}">    <!--  <img class="mr-2 " th:src="${p.imageUrl}" th:alt="${p.name}" width="35px" height="35px">>-->
+                                </td>                                                               <!--  <td>-->
+                                <td th:text="|*{painting.getName()}|">{paintingName}</td>                                             <!--  <td th:text="*{p.name}"></td>-->
+                                <td th:text="|*{painting.getAuthor()}|">{author}</td>                                                   <!--  <td th:text="*{p.author}"></td>-->
+                                <td th:text="|*{painting.getStyle()}|">{styleName}</td>                                                <!--  <td th:text="*{p.style.styleName}"></td>-->
+                                <td style="width: 15%">                                             <!--  <td style="width: 15%">-->
+                                    <a class="btn-danger btn" th:href="@{/delete-painting/{id}(id=${painting.getId()})}">Remove</a>                            <!--  <a class="btn-danger btn" th:href="@{/paintings/remove/{id}(id = *{p.id})}"-->
+                                </td>                                                               <!--  <td>-->
+                            </tr>                                                                   <!--  <tr>-->
+                        </table>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="home-fields" style="height: 39vh; overflow: auto">
+                        <h3 class="my-paintings">My Favorites</h3>
+                        <table class="table table-striped table-dark">
+                            <tr class="my-paintings" th:each="painting : ${homeViewDTO.getMyFavorites()}">                                 <!--//TODO--><!--<tr class="my-paintings" th:each="..."-->
+                                <td scope="row" style="width: 5%">
+                                    <img class="mr-2" src="" alt="" width="35px"
+                                         height="35px" th:src="${painting.url}">
+                                </td>
+                                <td th:text="|*{painting.getName()}|">{paintingName}</td>
+                                <td th:text="|by *{painting.getAuthor()}|">by {author}</td>
+                                <td th:text="|owner: *{painting.getOwner()}|">owner: {ownerUsername}</td>
+                                <td><a th:href="@{/paintings/remove-favorites/{id}(id=*{painting.getId()})}">                                               <!--//TODO--><!--<a th:href="@{/paintings/remove-favorites...">-->
+                                    <img class="mr-2"
+                                         src="/img/remove.png"
+                                         alt="Remove"
+                                         title="Remove from favorites"
+                                    ></a></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-6 mt-1 mb-1">
+                <div class="home-fields" style="height: 58vh; overflow: auto">
+                    <h3 class="my-paintings">Other Paintings</h3>
+                    <ul class="list-group list-group-vertical text-dark" th:each="painting : ${homeViewDTO.getOtherPaintings()}">              <!--//TODO--><!--<ul class="list-group list-group-vertical text-dark" th:each="..."-->
+                        <li>
+                            <div class="my-paintings-first-row">
+                                <div class="img1">
+                                    <img id="image" src="" alt="" width="75px"
+                                         height="75" style="padding-top: 0.3em; padding-left: 0.3em; margin-top: 2.3em" th:src="*{painting.getUrl()}">
+                                </div>
+                                <p id="names" th:text="|*{painting.getName()}|">{paintingName}</p>
+                                <p id="authors" th:text="|*{painting.getAuthor()}|">by {author}</p>
+                                <div class="buttons-info">
+                                </div>
+                            </div>
+                            <div class="buttons-info">
+                                <div class="favorite">
+                                    <p><a th:href="@{/add-to-favorites/{id}(id=${painting.id})}" class="btn-info btn">Favourite               <!--//TODO--><!--<a th:href="@{/paintings/add...">-->
+                                    </a>
+                                    </p>
+                                </div>
+                                <div class="rate">
+                                    <p><a class="btn-primary btn"
+                                    th:href="@{/painting-vote/{id}(id=${painting.id})}">Vote                 <!--//TODO--><!-- <a th:href="@{/paintings/vote...">-->
+                                    </a>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="second-info">
+                                <p th:text="|Style: *{painting.getStyle()}|">Style: {styleName}</p>
+                                <p th:text="|Added by *{painting.getOwner()}|">Added by {ownerUsername}</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="home-fields" style="height: 21vh; overflow: auto">
+                    <h3 class="my-paintings">Most Rated Paintings</h3>
+                    <div class="most-rated" th:each="painting : ${homeViewDTO.getMostRated()}">                                           <!--//TODO--><!--<div class="most-rated" th:each="..."-->
+                        <p th:text="|*{painting.getName()} by *{painting.getAuthor()}|">{paintingName} by {author}</p>
+                        <p th:text="|Number of votes: *{painting.getVotes()}|">Number of votes: {votes}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    </div>
+</main>
+<footer th:replace="fragments/commons::footer"></footer>
+</body>
+</html>

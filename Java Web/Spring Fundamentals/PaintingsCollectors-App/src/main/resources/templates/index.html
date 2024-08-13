@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/commons::head"></head>
+<body>
+<header th:replace="fragments/commons::nav"></header>
+<main>
+<!--    <div class="container bg-blur rounded mt-5 ">-->
+    <div class="welcome">
+        <h1>Welcome to Paintings Collectors App</h1>
+        <hr class="my-3 bg-white w-50"/>
+
+        <p class="h4">
+            "Paintings Collectors" is an app designed for art enthusiasts and collectors to explore, acquire, and manage their collections
+            of paintings. It offers a user-friendly platform where users can browse through various artworks, view details about each painting
+        and add their own art.</p>
+        <hr class="my-3 bg-white w-75"/>
+
+        <h3>
+            <a class="primary-text" th:unless="${@loggedUser.isLogged()}" th:href="@{/login}">Login</a>
+            if you have an account or
+            <a class="primary-text" th:unless="${@loggedUser.isLogged()}" th:href="@{/register}">Register</a>
+            now and check our paintings.
+        </h3>
+    </div>
+</main>
+<footer th:replace="fragments/commons::footer"></footer>
+</body>
+</html>
