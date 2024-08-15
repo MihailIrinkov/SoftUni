@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/commons::head}"></head>
+<body>
+<header th:replace="~{fragments/commons::nav}"></header>
+<main>
+    <div class="welcome">
+        <h1>Welcome to Philately App</h1>
+        <hr class="my-3 bg-white w-75"/>
+
+        <p class="h4" style="color: #c9cacb;">
+            Philately is the collection and study of postage stamps and related postal items.
+            <br>It is a hobby enjoyed by people of all ages around the world, and it<br> can be both
+            a leisure activity and an academic pursuit.</p>
+        <p style="font-size: 20px; padding-left: 100px; padding-right: 100px">Philately began shortly after the
+            introduction of the first postage stamp,
+            the Penny Black, <br> in 1840 in Great Britain. As postal systems expanded and evolved,
+            so did the hobby of collecting stamps.</p>
+        <hr class="my-3 bg-white w-75"/>
+
+        <h3>
+            <a class="primary-text" th:unless="${@loggedUser.isLogged()}" th:href="@{/login}">Login</a>
+            if you have an account or
+            <a class="primary-text" th:unless="${@loggedUser.isLogged()}" th:href="@{/register}">Register</a>
+            if you don't have one.
+        </h3>
+    </div>
+</main>
+<footer th:replace="~{fragments/commons::footer}"></footer>
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/commons::head}"></head>
+<body>
+<header th:replace="~{fragments/commons::nav}"></header>
+<main>
+    <div class="welcome mt-1 mb-4">
+        <p class="mySticky bg-gray text-dark user" th:text="|Welcome ${@loggedUser.getUsername()}|">Welcome {loggedUser}</p>
+        <div class="row mt-1 mb-2">
+            <div class="col-6 mt-1 mb-1">
+                <div>
+                    <div class="home-fields" style="height: 40vh; overflow: auto">
+                        <h3 class="my-stamps">My Stamps</h3>
+                        <table class="my-table table-striped table-dark" th:each="stamp : ${homeViewDTO.getMyStamps()}">
+                            <tr class="my-stamps">
+                                <td>
+                                    <img src="" alt="" width="70px"
+                                         height="70px">
+                                </td>
+                                <td style="text-align: start" th:text="|Name: *{stamp.getName()}|">Name: {stampName}</td>
+                                <td style="text-align: end; padding-right: 5px" th:text="|Description: *{stamp.getDescription()}|">Description: {stampDescription}</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                <td style="text-align: start" th:text="|Used paper: *{stamp.getPaperName()}|">Used paper: {stampPaper}</td>
+                                <td style="text-align: end; padding-right: 5px" th:text="|Price: *{stamp.getPrice()} $|">Price: {stampsPrice}$
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="home-fields" style="height: 39vh; overflow: auto">
+                        <h3 class="my-stamps">My Purchases</h3>
+                        <div class="bought">
+                            <div th:each="stamp : ${homeViewDTO.getMyPurchases()}">
+                                <div class="stamp">
+                                    <div class="item">
+                                        <img src="{stampImageUrl}" alt="" width="100px"
+                                             height="100px">
+                                        <p th:text="*{stamp.getName()}">{stampName}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-6 mt-1 mb-1">
+                <div class="home-fields" style="height: 40vh; overflow: auto">
+                    <h3 class="my-stamps">Offered Stamps</h3>
+                    <ul class="list-group list-group-vertical text-dark" th:each="stamp : ${homeViewDTO.getOfferedStamps()}">
+                        <li>
+                            <div class="my-stamps-first-row">
+                                <div class="img1">
+                                    <img id="image" width="85px" src="{stampImageUrl}" alt=""
+                                         height="85" style="padding-top: 0.3em; padding-left: 0.3em; margin-top: 2.3em">
+                                </div>
+                                <div class="stamp-info">
+                                    <p th:text="|Name: *{stamp.getName()}|">Name: {stampName}</p>
+                                    <p th:text="|Description: *{stamp.getDescription()}|">Description: {stampDescription}</p>
+                                </div>
+                            </div>
+                            <div class="buttons-info">
+                                <div class="favorite">
+                                    <p><a class="btn-outline-info btn" th:href="@{/add-to-wish-list/{id}(id=*{stamp.id})}">To Wishlist
+                                    </a>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="second-info">
+                                <p th:text="|Added by: *{stamp.getOwnerName()}|">Added by: {stampOwner}</p>
+                                <p></p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="home-fields" style="height: 39vh; overflow: auto">
+                    <h3 class="my-stamps">My Wishlist</h3>
+                    <div class="wish-list" th:each="stamp : ${homeViewDTO.getMyWishList()}">
+                        <table class="my-table">
+                            <tr class="my-stamps">
+                                <td style="text-align: start; padding-left: 5px" th:text="|*{stamp.getName()}|">{stampName}</td>
+                                <img src="{stampImageUrl}" alt="" width="55px"
+                                     height="55" style="padding-top: 0.3em; padding-left: 0.3em">
+                                <td style="text-align: end; padding-right: 5px" th:text="|Price: *{stamp.getPrice()} $|">Price: {stampPrice} $</td>
+                                <td style="width: 15%; padding-top: 8px; padding-right: 5px">
+                                    <a class="btn-danger btn" th:href="@{/remove-from-wishlist/{id}(id=*{stamp.id})}">Remove</a>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="buttons-info">
+                        <p style="margin-top: 10px"><a class="btn-info btn" th:href="@{/buy-stamps/{id}(id=${@loggedUser.getUsername()})}">Buy all
+                        </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</main>
+<footer th:replace="~{fragments/commons::footer}"></footer>
+</body>
+</html>

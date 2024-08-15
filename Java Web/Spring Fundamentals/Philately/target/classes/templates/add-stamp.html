@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/commons::head}"></head>
+<body>
+<header th:replace="~{fragments/commons::nav}"></header>
+<main>
+    <form class="welcome add-offer-form"
+          th:method="POST"
+          th:action="@{/add-stamp}"
+          th:object="${addStampBindingModel}">
+    <h1 class="text-center mt-2"><span class="badge badge-pill badge-dark">Add stamp</span></h1>
+
+        <div class="form-group">
+            <div class="label-holder text-white textCol d-flex justify-content-center">
+                <label for="name" class="h4 mb-2">Name</label>
+            </div>
+            <input type="text" class="form-control" id="name" name="name"
+            th:field="*{name}"/>
+            <small class="bg-danger text-light rounded"
+            th:if="${#fields.hasErrors('name')}"
+            th:errors="*{name}">Name error message</small>
+        </div>
+
+        <div class="form-group">
+            <div class="label-holder text-white textCol d-flex justify-content-center">
+                <label for="description" class="h4 mb-2">Description</label>
+            </div>
+            <input type="text"  class="form-control" id="description" name="description"
+            th:field="*{description}"/>
+            <small class="bg-danger text-light rounded"
+            th:if="${#fields.hasErrors('description')}"
+            th:errors="*{description}">Description error message</small>
+        </div>
+
+        <div class="form-group">
+            <div class="label-holder text-white textCol d-flex justify-content-center">
+                <label for="imageUrl" class="h4 mb-2">Image URL</label>
+            </div>
+            <textarea type="text" class="form-control" id="imageUrl" name="imageUrl"
+            th:field="*{imageUrl}"></textarea>
+            <small class="bg-danger text-light rounded"
+            th:if="${#fields.hasErrors('imageUrl')}"
+            th:errors="*{imageUrl}">Image URL error message</small>
+        </div>
+
+        <div class="form-group">
+            <div class="label-holder text-white textCol d-flex justify-content-center">
+                <label for="price" class="h4 mb-2">Price</label>
+            </div>
+            <input type="number" class="form-control" id="price" name="price"
+            th:field="*{price}"/>
+            <small class="bg-danger text-light rounded"
+            th:if="${#fields.hasErrors('price')}"
+            th:errors="*{price}">Price error message</small>
+        </div>
+
+        <div class="form-group">
+            <div class="text-white label-holder d-flex justify-content-center">
+                <label for="paper" class="h4 mb-2">Paper</label>
+            </div>
+            <select class="browser-default custom-select" id="paper" name="paper"
+            th:field="*{paper}">
+                <option value="">Select paper</option>
+                <option value="WOVE_PAPER">wove_paper</option>
+                <option value="LAID_PAPER">laid_paper</option>
+                <option value="GRANITE_PAPER">granite_paper</option>
+            </select>
+
+            <small class="bg-danger text-light rounded"
+            th:if="${#fields.hasErrors('paper')}"
+            th:errors="*{paper}">Paper error message</small>
+        </div>
+
+        <div class="button-holder d-flex justify-content-center">
+            <button type="submit" class="btn btn-info  mb-3">Add stamp</button>
+        </div>
+
+    </form>
+</main>
+<footer th:replace="~{fragments/commons::footer}"></footer>
+</body>
+</html>

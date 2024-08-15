@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Philately App</title>
+    <link rel="stylesheet" href="/css/reset-css.css"/>
+    <link rel="stylesheet" href="/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/css/style.css"/>
+</head>
+<body>
+<header>
+    <nav>
+        <div class="home">
+            <a th:if="${@loggedUser.isLogged()}" th:href="@{/home}">Philately App</a>
+            <a th:unless="${@loggedUser.isLogged()}" th:href="@{/}">Philately App</a>
+            <a th:if="${@loggedUser.isLogged()}" th:href="@{/add-stamp}">Add Stamp</a>
+        </div>
+        <div class="links">
+            <li>
+                <a th:unless="${@loggedUser.isLogged()}" th:href="@{/login}">Login</a>
+            </li>
+            <li>
+                <a th:unless="${@loggedUser.isLogged()}" th:href="@{/register}">Register</a>
+            </li>
+            <li>
+                <a th:if="${@loggedUser.isLogged()}" th:href="@{/logout}">Logout</a>
+            </li>
+        </div>
+    </nav>
+</header>
+<footer class="footer bg-transparent py-2">
+    <div class="container-fluid text-center">
+        <div class="footer-background footer-text fixed-bottom">
+            &copy; Spring team 2024. All rights reserved.
+        </div>
+    </div>
+</footer>
+</body>
+</html>
