@@ -81,16 +81,16 @@ public class HomeController {
         return new ModelAndView("redirect:/home");
     }
 
-    @GetMapping("/buy-stamps/{username}")
+    @GetMapping("/buy-stamps")
     public ModelAndView buyStamp(
-            @PathVariable("username")
-            String username
+            @ModelAttribute("myWishList")
+            Set<StampDTO> myWishList
     ) {
         if (!loggedUser.isLogged()) {
             return new ModelAndView("redirect:/login");
         }
 
-        this.userService.buyStamp(username);
+        this.userService.buyStamp(myWishList);
 
         return new ModelAndView("redirect:/home");
     }

@@ -17,5 +17,5 @@ public interface UserService {
 
     void removeFromWishList(Long id);
 
-    void  buyStamp(String username);
+    void  buyStamp(Set<StampDTO> myWishList);
 }
