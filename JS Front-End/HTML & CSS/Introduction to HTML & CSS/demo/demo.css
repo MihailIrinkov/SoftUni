@@ -1,0 +1,17 @@
+body {
+    background: rgb(114, 61, 61);
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.header {
+    text-decoration: underline;
+}
+
+#header {
+    background: firebrick;
+    color: aliceblue;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: normal;
+}
