@@ -1,0 +1,18 @@
+p.hightlihted {
+    color: red;
+    font-size: 18;
+}
+
+div#custom {
+    background-color: aquamarine;
+    padding: 20px;
+}
+
+a[href^="http"] {
+    border-bottom: solid orange;
+    color: orange;
+}
+
+p.fancy.hightlihted {
+    background-color: black;
+}
