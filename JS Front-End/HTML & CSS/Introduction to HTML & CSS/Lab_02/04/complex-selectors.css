@@ -1,0 +1,50 @@
+ul li a {
+    color: blueviolet;
+    text-decoration: none;
+}
+
+li > a {
+    font-weight: bold;
+}
+
+.content > section.hightlighted > article{
+    background-color: coral;
+}
+
+section + header {
+    background-color: red;
+}
+
+section ~ article {
+    font-weight: bold;
+    text-decoration: underline;
+    background-color: blue;
+}
+
+.gallery img[src^="https://images.unsplash.com"] {
+    border: 20px solid red;
+}
+
+nav ul li:first-child {
+    color: brown;
+}
+
+nav ul li:first-child a {
+    color: #000;
+    text-decoration: underline;
+}
+
+section.hightlighted h2::before{
+    content: ">> ";
+    color: darkred;
+}
+
+section.hightlighted h2::after {
+    content: " <<";
+    color: darkred;
+}
+
+section.hightlighted h2 {
+    font-weight: bold;
+    color: #00ff4c;
+}
