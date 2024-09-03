@@ -1,0 +1,31 @@
+section p {
+    color: darkcyan;
+}
+
+.main-list > li {
+    font-weight: bold;
+}
+
+article.hightlight + article {
+    background-color: coral;
+}
+
+h2 ~ p {
+ color: blue;   
+}
+
+li.special + li a {
+    color: green;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+.special {
+    color: tomato;
+}

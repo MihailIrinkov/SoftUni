@@ -1,0 +1,42 @@
+h1, h2, p {
+    font-family: 'Times New Roman', Times, serif;
+    color: darkolivegreen;
+}
+
+header, section, footer {
+    margin: 10px 0;
+    padding: 15px;
+    border: 1px solid #cccccc;
+}
+
+nav a:hover, section a:hover, footer a:hover {
+    color: blueviolet;
+    text-decoration: underline;
+}
+
+section h1, h2 {
+    background-color: black;
+}
+
+section.services p {
+    text-decoration: underline;
+}
+
+section.introduction p, h2 {
+    font-weight: bold;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: black;
+}
