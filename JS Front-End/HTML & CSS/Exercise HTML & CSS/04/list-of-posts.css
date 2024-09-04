@@ -1,0 +1,14 @@
+.author {
+    font-style: italic;
+    color: olivedrab;
+}
+
+header + p {
+    font-weight: bold;
+    color: chocolate;
+}
+
+.time {
+    font-style: oblique;
+    font-weight: bold;
+}
