@@ -1,0 +1,9 @@
+ol.done li {
+    text-decoration: line-through;
+}
+
+.to-do-list li:hover {
+    background-color: yellow;
+    text-decoration: line-through;
+    cursor: pointer;
+}
