@@ -1,0 +1,20 @@
+li a {
+    color: blue;
+}
+
+body {
+    background-color: #EEE;
+    color: #333;
+}
+
+header {
+    background-color: aliceblue;
+}
+
+aside {
+    background-color: beige;
+}
+
+footer {
+    background-color: antiquewhite;
+}
