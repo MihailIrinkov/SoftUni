@@ -1,0 +1,16 @@
+.example {
+    border: solid black 2px;
+    padding: 20px;
+}
+
+.uniform-padding {
+    margin: 20px;
+}
+
+.non-uniform-padding {
+    margin: 10px 30px 20px 40px; 
+}
+
+.negative-margin {
+    margin-top: -20px;
+}
