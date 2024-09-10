@@ -1,0 +1,28 @@
+.example {
+    border: solid 2px black;
+    margin-bottom: 20px;
+    padding: 10px;
+}
+
+.fixed-width {
+    width: 300px;
+}
+
+.percentage-width {
+    width: 50%;
+}
+
+.viewport-width {
+    width: 50vw;
+}
+
+.min-max-width {
+    width: 80%;
+    max-width: 300px;
+    min-width: 100px;
+}
+
+p {
+    margin: 5px;
+    font-size: 16px;
+}
