@@ -1,0 +1,15 @@
+.example {
+    border: 5px solid #333;
+    padding: 20px;
+    width: 300px;
+    margin-bottom: 20px;
+    background: tomato;
+}
+
+.content-box {
+    box-sizing: content-box;
+}
+
+.border-box {
+    box-sizing: border-box;
+}
