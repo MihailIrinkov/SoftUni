@@ -1,0 +1,24 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    border: 2px solid green;
+    padding: 2em;
+}
+
+.wrapper {
+    border: 2px solid black;
+    padding: 2em;
+    max-width: 1000px;
+    margin: 2em auto;
+}
+
+.wrapper p {
+    border: 2px solid blue;
+    padding: 1em;
+    margin-left: 2em;
+    margin-right: 2em;
+}
