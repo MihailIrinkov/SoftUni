@@ -1,0 +1,53 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.box-model {
+    max-width: 600px;
+    margin: 4em auto;
+}
+
+.box-model div {
+    border: 1px dashed #666;
+    padding: 0em 2em 2em 2em;
+}
+
+.box-model div::before {
+    display: block;
+    margin-left: -1em;
+    padding-bottom: 0em;
+    height: 2em;
+    align-content: center;
+}
+
+div .margin {
+    background-color: lightsalmon;
+}
+
+div .border {
+    background-color:  blanchedalmond;
+}
+
+div .pading {
+    background-color: lightgreen;
+}
+
+div .content {
+    text-align: center;
+    background-color: lightblue;
+    padding: 1em;
+}
+
+.box-model .margin::before {
+    content: 'margin';
+}
+
+.box-model .border::before {
+    content: 'border';
+}
+
+.box-model .pading::before {
+    content: 'pading';
+}
