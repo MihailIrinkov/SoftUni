@@ -12,7 +12,7 @@
     border: 2px solid #000;
   }
 
-.flex-container.align-items {
+.flex-container {
     align-items: stretch;
 }
 
