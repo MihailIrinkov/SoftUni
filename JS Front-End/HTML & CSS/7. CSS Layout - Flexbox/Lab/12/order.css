@@ -1,0 +1,37 @@
+.flex-container {
+    width: 400px;
+    padding: 1em;
+    border: 2px solid blue;
+    display: flex;
+    align-items: flex-start;
+  }
+  
+.flex-container.order-custom .flex-item:nth-child(1){
+    order: 5;
+}
+
+.flex-container.order-custom .flex-item:nth-child(2) {
+    order: 3;
+}
+
+.flex-container.order-custom .flex-item:nth-child(3) {
+    order: 1;
+}
+
+.flex-container.order-custom .flex-item:nth-child(4) {
+    order: 6;
+}
+
+.flex-container.order-custom .flex-item:nth-child(5) {
+    order: 2;
+}
+
+.flex-container.order-custom .flex-item:nth-child(6) {
+    order: 4;
+}
+
+  .flex-container .flex-item {
+    background: #eee;
+    padding: 20px;
+    border: 2px solid #000;
+  }
