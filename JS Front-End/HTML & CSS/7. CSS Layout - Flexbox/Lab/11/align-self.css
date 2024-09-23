@@ -1,0 +1,31 @@
+.flex-container {
+    width: 300px;
+    height: 200px;
+    padding: 1em;
+    border: 2px solid blue;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+  }
+
+  .flex-container.align-self-flex-start {
+    align-self: flex-start;
+  }
+  
+.flex-container.align-self-center .flex-item:nth-child(2){
+    align-self: center;
+}
+
+  .flex-container.align-self-flex-end .flex-item:nth-child(2){
+    align-self: flex-end;
+  }
+
+  .flex-container.align-self-baseline .flex-item:nth-child(2){
+    align-self: baseline;
+  }
+  
+  .flex-container .flex-item {
+    background: #eee;
+    padding: 1em;
+    border: 2px solid #000;
+  }
