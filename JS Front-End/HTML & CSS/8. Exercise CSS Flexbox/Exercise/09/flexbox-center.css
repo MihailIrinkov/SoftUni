@@ -1,0 +1,37 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #eee;
+    padding: 2em;
+    font: 14px/1.5em Lato, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    max-width: 600px;
+    padding: 2em;
+    background: #fff;
+    border-radius: 0.3em;
+    box-shadow: 0 0 1em 0 rgb(0, 0, 0, 0.2);
+}
+
+ul {
+    padding-left: 1.5em;
+}
+
+.card div p,
+.card h2 {
+    padding-bottom: 1em;
+    /* font-weight: bold; */
+}
+
+.card div p:last-child {
+    padding-top: 1em;
+}
