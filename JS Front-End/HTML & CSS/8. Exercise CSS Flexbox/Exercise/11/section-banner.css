@@ -1,0 +1,58 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #eee;
+    font: 14px/1.5 Lato, sans-serif;
+}
+
+.site {
+    max-width: 900px;
+    background: #fff;
+    margin: 2em auto;
+    padding: 2em;
+}
+
+h3 {
+    opacity: 0.5;
+}
+
+article {
+    display: flex;
+    flex: 1 1 70%;
+    flex-direction: row;
+}
+
+button {
+    padding: 0.5em 1em;
+    border-radius: 0.3em;
+    border: 0em;
+    margin-top: 2em;
+}
+
+.chat {
+    background: #663399;
+    color: #fff;
+}
+
+.content {
+    display: flex;
+    align-self: center;
+}
+
+
+aside {
+    background: #ccc;
+    aspect-ratio: 1.5/1;
+    flex: 1 1 30%;
+    border-radius: 0.3em;
+    border: 1px solid black;
+    align-self: stretch;
+    overflow: visible;
+    align-self: flex-start;
+    box-shadow: 0 0 1em 0 rgb(0, 0, 0, 0.8);
+}
+
