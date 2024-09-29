@@ -1,0 +1,31 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font: 14px/1.5 Lato, sans=serif;
+}
+
+div {
+    background-color: #eee;
+    /* max-width: 1100px; */
+    margin: 2em auto;
+    margin-left: 2em;
+    margin-right: 2em;
+    padding: 0.5em;
+    box-shadow: 0 0 1em 0 rgb(0, 0, 0, 0.2);
+    border: 1px solid #ccc;
+    border-radius: 0.3em;
+}
+
+button {
+    padding: 0.5em 1em;
+    margin-left: 0.5EM;
+    border-radius: 0.3EM;
+    background-color: #fff;
+    color: darkorange;
+    border: 1px solid #ccc;
+    font-weight: bold;
+}
