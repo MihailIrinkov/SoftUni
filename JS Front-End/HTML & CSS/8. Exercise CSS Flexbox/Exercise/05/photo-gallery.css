@@ -1,0 +1,38 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #eeeeee;
+    font-family: Lato, sans-serif;
+}
+
+.container {
+    width: 96%;
+    display: flex;
+    margin: 3em auto;
+    flex-wrap: wrap;
+    gap: 2em;
+}
+
+.gallery-item {
+    border: 5px solid black;
+    background: #fff;
+    flex: 0 0 calc((100% / 3) - 2em);
+    padding: 1em;
+}
+
+img {
+    max-width:100%;
+    padding-bottom: 2em;
+}
+
+figure {
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+}
+
