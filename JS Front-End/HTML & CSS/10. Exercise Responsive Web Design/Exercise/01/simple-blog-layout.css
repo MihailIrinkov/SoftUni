@@ -1,0 +1,47 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    padding: 2em;
+    font: 14px/1.5 Lato, sans-serif;
+    background: #eee;
+}
+
+.site {
+    padding: 2em;
+    background: #fff;
+    border-radius: 0.3em;
+    box-shadow: 0 0 1em 0 rgb(0, 0, 0, 0.2);
+    flex-wrap: wrap;
+    flex-direction: column;
+    display: flex;
+    gap: 1em;
+}
+
+.site > * {
+    border: 1px solid black;
+    border-radius: 0.3em;
+    padding: 1em;
+}
+
+.site .site-header,
+.site .site-footer {
+    flex: 0 0 100%;
+}
+
+.site .site-main {
+    flex: 1 0 60%;
+}
+
+.site .site-sidebar {
+    flex: 0 0 30%;
+}
+
+@media (min-width: 600px) {
+    .site {
+        flex-direction: row;
+    }
+}
