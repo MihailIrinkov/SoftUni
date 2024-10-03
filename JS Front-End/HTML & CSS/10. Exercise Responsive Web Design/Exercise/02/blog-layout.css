@@ -12,94 +12,80 @@ body {
 
 .site {
     background: #ffffff;
+    max-width: 1100px;
     margin: 0 auto;
+    border-radius: 0.3em;
+    box-shadow: 0 0 1em 0 rgb(0, 0, 0, 0.2);
+    overflow: hidden;
 }
 
-h1 {
-    padding-top: 1em;
-    padding-left: 1.5em;
-    padding-bottom: 1em;
-}
-
-main, aside {
-    padding: 1em;
-}
-
-.site-content p {
-    padding-bottom: 1em;
+p:not(:last-child) {
+    padding-bottom: 1.5em;
 }
 
 .site-content {
     display: flex;
     flex-wrap: wrap;
-    flex-direction: row;
+    gap: 2em;
     padding: 2em;
 }
 
-.site-content main {
-    flex: 1 0 60%;
+.site-main {
+    flex: 1 1 650px;
 }
 
-.site-content aside {
-    flex: 0 0 30%;
+.site-sidebar {
+    flex: 1 0 250px;
 }
 
-h1 a {
-    color: #009900;
-}
-
-nav {
-    margin-top: 1em;
-    background: #444444;
-    padding: 1rem;
-}
-
-ul {
-    list-style-type: none;
-    display: flex;
-    justify-content: space-between;
-    padding-right: 14em;
-}
-
-nav ul li a {
+.site-header a {
+    color: inherit;
     text-decoration: none;
+}
+
+.site-header h1 {
+    color: #090;
+    padding: 1em 1.5em;
+}
+
+.site-header nav {
+    background: #333;
+    color: #ccc;
+}
+
+.site-header nav ul {
+    display: flex ;
+    flex-direction: column;
+    text-align: center;
+}
+
+.site-header nav li {
+    display: block;
+    list-style: none outside;
+    flex: 1 0 auto;
+}
+
+.site-header nav a {
+    display: block;
+    padding: 1em 1.5em;
+}
+
+.site-header nav a:hover {
+    background: darkorange;
     color: #ffffff;
 }
 
-footer {
-    background: #444444;
-    color: #eeeeee;
-    text-align: center;
+.site-footer {
+    background: #333;
+    color: #ccc;
     padding: 1em;
+    text-align: center;
+    margin-top: 2em;
 }
 
-a:hover {
-    background-color: darkorange;
-    color: black;
-}
-
-
-@media (max-width: 600px) {
-    .site-content {
-        display: flex;
-        flex-wrap: wrap;
-        flex-direction: column;
-    }
-
-    ul {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding: 1em;
-    }
-
-    ul li:not(:last-child) {
-        padding-bottom: 0.5em;
-        padding-top: 0.5em;
-        border-bottom: 1px solid #eeeeee;
-    }
-
-    ul li:last-child {
-        padding-top: 0.5em;
+@media (min-width: 600px) {
+    .site nav ul {
+        flex-direction: row;
+        text-align: left;
     }
 }
