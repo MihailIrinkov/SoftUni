@@ -11,13 +11,38 @@ body {
 }
 
 table {
-    background-color: #fff;
     border-collapse: collapse;
-    margin: 0 auto;
 }
 
 table td, table th {
     padding: 1em 1.2em;
     border: 1px solid #333;
+    background-color: #fff;
 }
 
+@media (max-width: 600px) {
+
+    table,
+    table thead,
+    table tbody,
+    table tr,
+    table th,
+    table td {
+        display: block;
+    }
+
+    table thead {
+        display: none;
+    }
+
+    table tr {
+        padding: 2em 0;
+    }
+
+    table tbody tr td::before {
+        display: inline-block;
+        content: attr(data-title);
+        padding-right: 1em;
+        font-weight: bold;
+    }
+}
