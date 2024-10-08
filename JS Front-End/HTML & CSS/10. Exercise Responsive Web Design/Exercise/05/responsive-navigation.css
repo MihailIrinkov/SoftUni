@@ -1,0 +1,85 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font: 14px/1.5 Lato, sans-serif;
+    background: #ccc;
+    padding-top: 2em;
+}
+
+.site {
+    width: 1200px;
+    background: #fff;
+    margin: 0 auto;
+    padding: 2em 1em 2em 2em;
+    border-radius: 0.3em;
+    box-shadow: 0 0 1em 0 rgb(0, 0, 0, 0.2);
+}
+
+button {
+    padding-left: 1em;
+    padding-right: 1em;
+    border: none;
+}
+
+.site div {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.navigation h1 {
+    padding-right: 22em;
+}
+
+.navigation button:not(:last-child) {
+    margin-right: 1em;
+}
+
+button:hover {
+    background: darkorange;
+    color: #fff;
+    cursor: pointer;
+}
+
+
+@media (max-width: 800px) {
+    body {
+        font: 14px/1.5 Lato, sans-serif;
+        background: #ccc;
+        padding-top: 2em;
+        padding-right: 0.8em;
+    }
+    
+    .site {
+        width: 720px;
+        background: #fff;
+        margin: 0 auto;
+        padding: 2em 1em 2em 2em;
+        border-radius: 0.3em;
+        box-shadow: 0 0 1em 0 rgb(0, 0, 0, 0.2);
+    }
+    
+    button {
+        padding-left: 1em;
+        padding-right: 1em;
+        border: none;
+    }
+    
+    .site div {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    
+    .navigation h1 {
+        padding-right: 6em;
+    }
+    
+    .navigation button:not(:last-child) {
+        margin-right: 1em;
+    }
+}
