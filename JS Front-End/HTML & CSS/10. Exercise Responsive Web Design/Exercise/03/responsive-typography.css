@@ -1,0 +1,167 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #ccc;
+    font: 14px/1.5 Lato, sans-serif;
+    padding: 2em;
+}
+
+.site {
+    max-width: 1200px;
+    background: white;
+    margin: 0 auto;
+    padding: 2em;
+    padding-top: 4em;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	/* font-family: Georgia, serif; */
+	font-size: 1em;
+	line-height: 1.2;
+	margin: 1em 0 0.5em 0;
+	padding: 0;
+}
+
+h1 {
+	font-size: 2.2rem;
+}
+
+h2 {
+	font-size: 2.0rem;
+}
+
+h3 {
+	font-size: 1.8rem;
+}
+
+h4 {
+	font-size: 1.6rem;
+}
+
+h5 {
+	font-size: 1.4rem;
+}
+
+h6 {
+	font-size: 1.2rem;
+}
+
+h6 {
+    padding-bottom: 1.5em;
+}
+
+p {
+	margin: 0;
+	padding-bottom: 1.5rem;
+}
+
+h6::after {
+    display: block;
+    content: "";
+    border: 1px solid #ccc;
+    margin-top: 2em;
+}
+
+.site article:nth-child(2)::after {
+    display: block;
+    content: '';
+    border: 1px solid #ccc;
+}
+
+.site article p:last-child {
+    margin-bottom: 1em;
+}
+
+ul li {
+    list-style: square;
+    margin-left: 3em;
+}
+
+ul li > ul li {
+    list-style: disc;
+}
+
+ul li > ul li > ul li {
+    list-style: circle;
+}
+
+ul li:last-child {
+    padding-bottom: 1em;
+}
+
+ul li > ul li:first-child {
+    padding-top: 1em;
+}
+
+div .counting p {
+    padding: 0em;
+    margin-left: 1.5em;
+}
+
+table {
+    width: 100%;
+    table-layout: fixed;
+    margin-bottom: 1.5em;
+    border: 1px solid #ccc;
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+
+td, th {
+    border: 1px solid #ccc;
+    padding: 0.3em 0.5em;
+}
+
+table thead th {
+    background: #ccc;
+    text-align: left;
+}
+
+table tr:nth-child(odd) td {
+    background: #F1F1F1;
+}
+
+table tr:hover td {
+    background: black;
+    color: white;
+    border-color: transparent;
+}
+
+.author {
+    border-left: 4px solid #ccc;
+    margin-left: 3em;
+}
+
+.author p {
+    padding-left: 3em;
+}
+
+.author p:last-child {
+    text-align: right;
+    font-style: italic;
+}
+
+.author p:first-child {
+    padding-top: 1.5em;
+}
+
+@media (min-width:600px) {
+    body {font-size: 14px;}
+}
+
+@media (min-width: 900px) {
+    body {font-size: 16px;}
+}
+
+@media (min-width: 1200px) {
+    body {font-size: 18px;}
+}
