@@ -1,0 +1,31 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font: 14px/1.5 Lato, sans-serif;
+    padding: 2em;
+}
+
+h1 + p {
+    margin-bottom: 3em;
+}
+
+code {
+    display: block;
+    background: #eee;
+    border-radius: 0.3em;
+    padding: 2em;
+    margin-top: 2em;
+    margin-bottom: 2em;
+    border: 1px solid darkgray;
+}
+
+input {
+    padding: 0.6em;
+    border: 2px solid lightgray;
+    border-radius: 0.3em;
+    margin-bottom: 3em;
+}
