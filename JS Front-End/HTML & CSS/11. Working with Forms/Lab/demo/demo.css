@@ -28,7 +28,63 @@ form fieldset {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 10px;
     padding: 10px;
 }
 
+form fieldset > div {
+    width: 100%;
+}
+
+form fieldset > div p {
+    margin-bottom: 5px;
+    font-style: italic;
+    font-weight: 300;
+}
+
+input:required:invalid {
+    border: 1px solid red;
+}
+
+input:required:valid {
+    border: 1px solid green;
+}
+
+input[type=text]:focus,
+input[type=password]:focus, 
+input[type=tel]:focus,
+input[type=email]:focus,
+input[type=number]:focus,
+input[type=date]:focus {
+    outline: none;
+    border: 1px solid blue;
+    border-radius: 3px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+input[type=text],
+input[type=password],
+input[type=tel],
+input[type=email],
+input[type=number],
+input[type=date] {
+    padding: 5px;
+}
+
+.required::after {
+    content: '*';
+    color: red;
+}
+
+button {
+    background: red;
+    border: 0;
+    padding: 10px;
+    color: #fff;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+button:hover {
+background-color: black;
+}

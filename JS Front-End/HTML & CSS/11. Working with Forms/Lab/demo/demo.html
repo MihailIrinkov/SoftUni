@@ -37,6 +37,68 @@
             <input type="date" id="month" name="month">
 
         </fieldset>
+
+        <fieldset>
+            <legend>Preferences</legend>
+
+            <div>
+                <p>What course you would like to join?</p>
+                <input type="radio" id="react" name="course_choise" value="Ract.js">
+                <label for="react">React.js</label>
+                <input type="radio" id="next" name="course_choise" value="Next.js">
+                <label for="next">Next.js</label>
+            </div>
+
+            <div>
+                <p>What ist your choise for back-end coding</p>
+                <input type="checkbox" id="php" name="backend_choise" value="PHP">
+                <label for="php">PHP</label>
+                <input type="checkbox" id="java" name="backend_choise" value="Java">
+                <label for="java">Java</label>
+            </div>
+
+            <div>
+                <p>What is your favorite IDE?</p>
+                <select name="ide" id="ide-choice" multiple>
+                    <option value="">Please choise an option</option>
+                    <option value="IntelliJ">IntelliJ</option>
+                    <option value="VSCode">VS Code</option>
+                    <option value="Atom">Atom</option>
+                </select>
+            </div>
+
+        </fieldset>
+
+        <fieldset>
+            <legend>Additional Information</legend>
+
+            <div>
+                <label for="file">Upload tour CV</label>
+                <input type="file" id="file" name="file" accept=".jpg, .pdf, .png">
+            </div>
+
+            <div>
+                <label for="file">Upload your Motivation letter</label>
+                <textarea id="letter" name="letter" rows="4" cols="40" placeholder="Please, write something."></textarea>
+            </div>
+
+        </fieldset>
+
+        <fieldset>
+            <legend>Some more examples</legend>
+
+            <div>
+                <label for="search">Search:</label>
+                <input type="search" id="search" name="search">
+            </div>
+
+            <div>
+                <label for="website">Website:</label>
+                <input required type="url" id="website" name="website">
+            </div>
+        </fieldset>
+
+        <button type="submit" value="Register">Register</button>
     </form>
     
 </body>
