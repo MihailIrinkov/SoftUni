@@ -1,37 +1,41 @@
-*{
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
 
-body {
+html {
     font: 14px/1.5 Lato, sans-serif;
-    padding: 2em;
 }
 
 body, input, textarea, select, option {
     font: inherit;
 }
 
-h1 + p {
-    margin-bottom: 3em;
+body {
+    padding: 2em;
+}
+
+h2 {
+    margin-top: 2em;
 }
 
 code {
     display: block;
-    background: #eee;
+    padding: 2em 2em 2em 2em;
     border-radius: 0.3em;
-    padding: 2em;
-    margin-top: 2em;
-    margin-bottom: 2em;
-    border: 1px solid darkgray;
+    margin: 2em 0;
+    border: 1px solid #ccc;
+    background: #eee;
+    overflow: auto;
 }
 
+
 input {
-    padding: 0.6em;
-    border: 2px solid lightgray;
+    display: inline-block;
+    padding: 0.5em 0.8em;
+    border: 2px solid #CCC;
     border-radius: 0.3em;
-    margin-bottom: 3em;
     outline: none;
 }
 
