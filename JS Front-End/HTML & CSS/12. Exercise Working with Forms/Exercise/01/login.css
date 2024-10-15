@@ -1,0 +1,77 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font: 14px/1.5 Lato, sans-serif;
+}
+
+body {
+    background: silver;
+}
+
+form {
+    max-width: 900px;
+}
+
+form, p {
+display: flex;
+flex-direction: column;
+}
+
+legend {
+    border-bottom: 2px solid silver;
+    font-weight: 800;
+    padding-top: 6em;
+    padding-bottom: 1.5em;
+    margin-top: 3em;
+}
+
+input {
+    padding: 1em;
+    border-radius: 0.3em;
+    border: 2px solid darkgray;
+}
+
+fieldset {
+    width: 400px;
+    margin: 3em auto;
+    display: flex;
+    flex-direction: column;
+    background: white;
+    gap: 1em;
+    padding: 2em;
+    border: none;
+    border-radius: 0.3em;
+    box-shadow: 0 0 1em 0 rgb(0, 0, 0, 0.2);
+}
+
+fieldset p label {
+    order: -1;
+}
+
+input[type="submit"] {
+    background: darkorange;
+    color: white;
+    margin-top: 1em;
+    font-size: 1.1em;
+    cursor: pointer;
+}
+
+p label::after {
+    content: '*';
+    color: red;
+    padding-left: 0.2em;
+    font-size: large;
+}
+
+p input {
+    outline: none;
+}
+
+input:focus {
+    color: blue;
+    border-color: blue;
+}
