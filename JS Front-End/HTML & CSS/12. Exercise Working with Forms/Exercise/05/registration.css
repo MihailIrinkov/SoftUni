@@ -1,0 +1,148 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font: 14px/1.5 Lato, sans-serif;
+}
+
+body, input, select, button {
+    font: inherit;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: #eee;
+}
+
+form {
+    width: 490px;
+    background: #fff;
+    padding: 2em;
+    border-radius: 0.3em;
+    box-shadow: 0 0 1em 0 rgb(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+fieldset {
+    padding: 1em;
+    border: 2px solid darkgray;
+    border-radius: 0.3em;
+    /* display: flex;
+    flex-direction: column; */
+    padding-left: 2em;
+    padding-right: 2em;
+}
+
+h2 {
+    margin-bottom: 1.5em;
+}
+
+legend {
+    padding-left: 1em;
+    padding-right: 1em;
+}
+
+p {
+    display: flex;
+    flex-direction: column;
+}
+
+input {
+    border: none;
+    border-bottom: 2px solid #ccc;
+}
+
+label, legend {
+    font-weight: bold;
+}
+
+p label {
+    order: -1;
+}
+
+.add-info {
+    padding-bottom: 2em;
+}
+
+.email {
+    margin-bottom: 2em
+}
+
+.email::after {
+    content: 'example: test.test@testmann.com';
+    font-size: 0.8em;
+    font-style: italic;
+}
+
+.password {
+    margin-bottom: 2em;
+}
+
+.password::after {
+    content: 'minimum 6 characters, letters and numbers, at least 1 special character';
+    font-size: 0.8em;
+    font-style: italic;
+}
+
+.add-info::after {
+    content: 'example: 05.10.2002';
+    font-size: 0.8em;
+    font-style: italic;
+}
+
+input[type='submit'] {
+    padding: 1em;
+    border: none;
+    border-radius: 0.3em;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 2em;
+}
+
+input[type='submit']:hover {
+    background: darkorange;
+    color: #fff;
+}
+
+input {
+    padding-bottom: 1em;
+    outline: none;
+}
+
+.add-info:has(input:focus) {
+    color: darkorange;
+    opacity: 1;
+}
+
+.email:has(input:focus) {
+    color: darkorange;
+    opacity: 1;
+}
+
+.password:has(input:focus) {
+    color: darkorange;
+    opacity: 1;
+}
+
+.email:has(input:focus)::after {
+    color: darkgrey;
+    opacity: 1;
+}
+
+.password:has(input:focus)::after {
+    color: darkgrey;
+    opacity: 1;
+}
+
+.add-info:has(input:focus)::after {
+    color: darkgrey;
+    opacity: 1;
+}
