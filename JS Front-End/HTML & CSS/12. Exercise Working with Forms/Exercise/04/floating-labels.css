@@ -1,0 +1,89 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font: 14px/1.5 Lato, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2em;
+    background: #eee;
+}
+
+form {
+    background: #fff;
+    width: 410px;
+    border-radius: 0.3em;
+    box-shadow: 0 0 1em 0 rgb(0, 0, 0, 0.2);
+}
+
+fieldset {
+    border: none;
+    padding: 1em;
+    margin: 1em;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+p {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-weight: 550;
+}
+
+p label {
+    order: -1;
+}
+
+input {
+    border: none;
+}
+
+p input {
+    border-bottom: 2px solid #eee;
+}
+
+legend {
+    font-weight: 600;
+    font-size: 1.5em;
+    margin-bottom: 2em;
+    padding-top: 1em;
+}
+
+input[type='submit'] {
+    font-weight: 700;
+    font-size: 1.2em;
+    padding: 1em;
+    border-radius: 0.3em;
+    margin-top: 2em;
+    cursor: pointer;
+}
+
+input[type='submit']:hover {
+    background: darkorange;
+    color: #fff;
+}
+
+p:after {
+    content: 'example: john.test@test.com';
+    color: darkgray;
+    font-size: 0.8em;
+    font-style: italic;
+    font-weight: bold;
+}
+
+p + p::after {
+    content: 'minimum 6 characters, letters and numbers, at least 1 special character';
+    color: darkgray;
+    font-size: 0.8em;
+    font-style: italic;
+    font-weight: bold;
+}
