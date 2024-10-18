@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>8. Contact form</title>
+    <link rel="stylesheet" href="contact.css">
+</head>
+<body>
+
+    <form action="#">
+        <fieldset>
+            <legend>Contact</legend>
+
+            <p class="name">
+                <input type="text" id="name" name="name">
+                <label for="name">Your Name</label>
+            </p>
+
+            <p class="email">
+                <input type="email" id="email" name="email">
+                <label for="email">Email</label>
+            </p>
+
+            <p class="subject">
+                <input type="text" id="subject" name="subject">
+                <label for="subject">Subject</label>
+            </p>
+
+            <p class="textarea">
+                <textarea name="message" id="message" rows="4"></textarea>
+                <label for="message">Message</label>
+            </p>
+
+            <input type="submit" value="Send">
+        </fieldset>
+    </form>
+    
+</body>
+</html>

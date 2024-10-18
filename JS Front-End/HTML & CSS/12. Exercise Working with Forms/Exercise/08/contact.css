@@ -1,0 +1,151 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font: 14px/1.5 Lato, sans-serif;
+}
+
+body, input, select, button {
+    font: inherit;
+}
+
+body {
+    background: #eee;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+form {
+    background: #fff;
+    width: 60ch;
+    padding: 2em;
+}
+
+legend {
+    margin-bottom: 1em;
+    font-weight: bold;
+    font-size: 1.4em;
+}
+
+fieldset {
+    border: none;
+    display: flex;
+    flex-direction: column;
+}
+
+p {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    order: -1;
+}
+
+input {
+    border: none;
+    border-bottom: 2px solid #ccc;
+}
+
+p:nth-child(2), 
+p:nth-child(3),
+p:nth-child(4) {
+    margin-top: 3em;
+}
+
+p:nth-child(5) {
+    margin-top: 1em;
+}
+
+input[type=submit] {
+    border: none;
+    margin-top: 4em;
+    border-radius: 0.3em;
+    padding: 1em;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+input[type=submit]:hover {
+    background: darkorange;
+    color: #fff;
+}
+
+.name::after {
+    content: 'First and Last name is enough';
+    font-size: 0.8em;
+    font-style: italic;
+    opacity: 0.8;
+}
+
+.email::after {
+    content: 'example: john.test@test.com';
+    font-size: 0.8em;
+    font-style: italic;
+    opacity: 0.8;
+}
+
+.subject::after {
+    content: 'What is this about?';
+    font-size: 0.8em;
+    font-style: italic;
+    opacity: 0.8;
+}
+
+textarea {
+    border: none;
+    border-bottom: 2px solid #ccc;
+    outline: none;
+}
+
+p:nth-child(5)::after {
+    content: 'Let us know what you need';
+    font-size: 0.8em;
+    font-style: italic;
+    opacity: 0.8;
+}
+
+input {
+    outline: none;
+}
+
+.name:has(input:focus) {
+    color: darkorange;
+}
+
+.name:has(input:focus)::after {
+    color: darkgrey;
+    opacity: 1;
+}
+
+.email:has(input:focus) {
+    color: darkorange;
+}
+
+.email:has(input:focus)::after {
+    color: darkgrey;
+    opacity: 1;
+}
+
+.subject:has(input:focus) {
+    color: darkorange;
+}
+
+.subject:has(input:focus)::after {
+    color: darkgrey;
+    opacity: 1;
+}
+
+.textarea:has(textarea:focus) {
+    color: darkorange;
+}
+
+.textarea:has(textarea:focus)::after {
+    color: darkgrey;
+    opacity: 1;
+}
