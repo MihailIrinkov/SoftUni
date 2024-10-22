@@ -1,0 +1,251 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+html {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Lato", sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Montserrat", sans-serif;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header {
+    background: black;
+}
+
+img {
+    height: 55px;
+}
+
+nav ul {
+    display: flex;
+    gap: 1em;
+}
+
+nav ul li {
+    list-style: none;
+    color: #fff;
+    display: flex;
+}
+
+nav ul li a:last-of-type {
+    padding-right: 2em;
+}
+
+.heroSection {
+    position: relative;
+}
+
+.heroSection > * {
+    z-index: 2;
+    position: relative; 
+}
+
+.imageWrapper {
+    background: #1db954;
+    height: 200px;
+    z-index: 1 !important;
+    position: absolute;
+    width: 100%;
+}
+
+.heroSection h2 {
+    text-align: center;
+}
+
+.imageWrapper img {
+    height: 400px;
+    padding-top: 2em;
+    width: 46%;
+}
+
+.prices {
+    width: 800px;
+    margin: auto;
+    z-index: 2;
+    top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2em;
+    justify-content: space-between;
+    padding-bottom: 4em;
+}
+
+.prices h2 {
+    flex: 0 0 100%;
+    color: #fff;
+}
+
+.prices article{
+    flex: 0 1 calc(45% - 2em);
+    background: #fff;
+    border-radius: 0.5em;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    border: 2px solid grey;
+}
+
+h3 {
+    padding-top: 1em;
+    text-align: center;
+    padding-bottom: 1em;
+    opacity: 0.8;
+}
+
+.prices article ul {
+    padding: 1em 2em;
+}
+
+.prices article ul li {
+    list-style: circle;
+    padding-bottom: 1em;
+    opacity: 0.7;
+}
+
+article a {
+    background: #1db954;
+    align-self: center;
+    flex: 0 1 60%;
+    padding: 0.5em 1em;
+    border-radius: 3em;
+    margin-bottom: 1em;
+}
+
+.priceTab {
+    background: black;
+    color: #fff;
+    display: flex;
+    gap: 1em;
+    justify-content: center;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+}
+
+.priceTab p {
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+}
+
+.border {
+    border-right: 1px solid #fff;
+}
+
+.dogopal {
+    width: 1300px;
+    margin: 3em auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 5em;
+}
+
+.text {
+    flex: 0 0 65%;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.dogImage {
+ flex: 1 0;
+}
+
+.dogImage img {
+    max-width: 100%;
+    width: 100%;
+    height: 100%;
+}
+
+.dogopal h3 {
+    text-align: left;
+    padding-bottom: 0.5em;
+}
+
+.compareMe {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 5em;
+}
+
+.compareMe p {
+    padding-bottom: 2em;
+}
+
+.compareMe h3 {
+    padding-bottom: 1em;
+}
+
+.comparison {
+    width: 800px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    border-radius: 0.5em;
+    overflow: hidden;
+}
+
+.compareRow {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    gap: 18em;
+    padding: 0.5em;
+}
+
+.imageGroup {
+    flex: 0 1 auto;
+}
+
+.imageGroup img {
+    height: 1em;
+}
+
+.compareRow:nth-last-of-type(even) {
+    background: hsl(0deg 0.97% 79.8%);
+}
+
+.compareRow:nth-last-of-type(odd) {
+    background: hsl(141.38deg 52.73% 67.65%);
+}
+
+footer {
+    background: black;
+    color: #fff;
+    padding: 2em;
+    text-align: center;
+}
+
+.imageGroup {
+    display: flex;
+    gap: 7em;
+    margin-right: 3em;
+}
+
+.compareMe h3 {
+    font-size: 2rem;
+}
