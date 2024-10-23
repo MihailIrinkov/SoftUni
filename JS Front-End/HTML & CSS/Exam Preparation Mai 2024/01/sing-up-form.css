@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font: 14px/1.5 "Kode Mono", sans-serif;
+}
+
+body, input, button textarea {
+    font: inherit;
+}
+
+body {
+    padding: 2em;
+    background: hsl(25.71deg 5.34% 74.31%);
+}
+
+form {
+    width: 750px;
+    margin: 0 auto;
+    background: hsl(202.5deg 25% 18.82%);
+    padding: 4rem;
+    color: #fff;
+    border-radius: 0.5em;
+    box-shadow: 0 0 1em 0 rgb(0, 0, 0, 0.2);
+    font-size: 1.5em;
+}
+
+.nav {
+    display: flex;
+    margin-bottom: 2em;
+}
+
+.nav li {
+    flex: 1 1 auto;
+    display: block;
+    list-style: none outside;
+}
+
+.nav a {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+    padding: 1em 2em;
+    text-align: center;
+    background: hsl(196.36deg 14.1% 30.59%);
+}
+
+.nav li.current a {
+    background-color: hsl(163.71deg 74.38% 39.8%);
+}
+
+form h2 {
+    text-align: center;
+    font-weight: normal;
+    padding-bottom: 2rem;
+    font-size: 2em;
+}
+
+.field {
+    position: relative;
+    padding-bottom: 2em;
+}
+
+.field input {
+    display: block;
+    width: 100%;
+    border: 1px solid hsl(206.67deg 4.31% 59.02%);
+    background-color: transparent;
+    padding: 0.2em 0.3em;
+    line-height: 1;
+    outline: none;
+}
+
+.field label {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 0.3em 0.5em;
+    color: hsl(206.67deg 4.31% 59.02%);
+}
+
+.field input:required ~ label::after {
+    display: inline-block;
+    content: '*';
+    color: hsl(163.71deg 74.38% 39.8%);
+    padding-left: 0.2em;
+}
+
+form input[type="submit"] {
+    display: block;
+    width: 100%;
+    background-color: hsl(163.71deg 74.38% 39.8%);
+    color: #fff;
+    text-transform: uppercase;
+    border: none;
+    padding: 1rem 2rem;
+    font-size: 1.5em;
+    /* margin-top: 2em; */
+}
+
+.flex {
+    display: flex;
+    gap: 1.5em;
+}
+
+.flex .field {
+    flex: 1 1 auto;
+}
+
+.nav a:hover {
+    background: hsl(163.97deg 74.01% 34.71%);
+}
