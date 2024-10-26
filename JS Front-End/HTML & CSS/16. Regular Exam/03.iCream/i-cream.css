@@ -1,0 +1,302 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font: 14px/1.5 "Poppins", sans-serif;
+}
+
+body, input, button, textarea {
+    font: inherit;
+}
+
+.header {
+    background: hsl(341.09deg 76.67% 76.47%);
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 4em;
+    justify-content: center;
+    position: relative;
+}
+
+.navigation {
+    position: absolute;
+    top: 90px;
+}
+
+.header1 {
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+    padding-top: 2em;
+    padding-bottom: 1em;
+    margin-left: 2em;
+}
+
+.header1 p {
+    color: white;
+    border-right: 3px solid white;
+    padding-right: 1em;
+    font-weight: 1.2em;
+}
+
+.header1 p:last-of-type {
+    border: none;
+}
+
+.icons ul {
+    display: flex;
+    justify-content: center;
+    gap: 1.5em;
+}
+
+.icons ul li {
+    list-style: none;
+}
+
+.icons ul li a {
+    color: white;
+}
+
+.navigation {
+    width: 80%;
+    display: flex;
+    background: hsl(0deg 0% 100%);
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 10%;
+    margin-right: 10%;
+    border-radius: 3em;
+    padding-left: 2em;
+    padding-right: 2em;
+}
+
+.navigation ul li a {
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.navigation ul li {
+    list-style: none;
+}
+
+.nav-buttons1 ul, .nav-buttons2 ul {
+    display: flex;
+    gap: 2em;
+}
+
+.navigation h1 {
+    font-size: 4.4em;
+    color: hsl(341.09deg 76.67% 76.47%);
+}
+
+.navigation h1 span {
+    color: hsl(196.24deg 73.48% 64.51%);
+}
+
+
+.main1 {
+    background-image: url('images/carousel-1.jpg');
+    background-repeat: no-repeat;
+    background-size: 110%;
+    background-position: top center;
+    padding-bottom: 25em;
+    display: flex;
+    justify-content: center;
+}
+
+.wrapper1 {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding-top: 20%;
+}
+
+.wrapper1 h1, h3 {
+    color: white;
+}
+
+.wrapper1 h1 {
+    color: white;
+    font-size: 6em;
+    line-height: 1.1;
+    margin-bottom: 0.65em;
+}
+
+.wrapper1 h3 {
+    color: white;
+    font-size: 2em;
+    padding-bottom: 0.5em;
+}
+
+.wrapper1 .button1 a {
+    text-decoration: none;
+    color: white;
+    background: hsl(341.09deg 76.67% 76.47%);
+    padding: 0.5em 1em;
+    border-radius: 3em;
+}
+
+.main2 {
+    background: hsl(201.25deg 77.42% 87.84%);
+    padding: 4em 14em 4em 14em;
+    text-align: center;
+}
+
+.wrapper2 {
+    display: flex;
+    gap: 2em;
+}
+
+.main2 .midle img {
+    width: 30.7em;
+    height: 42.1em;
+}
+
+.bordermark {
+    width: 8.6em;
+    border-bottom: 5px solid hsl(341.09deg 76.67% 76.47%);
+    margin-left: 38em;
+}
+
+.main2 h1 {
+    font-size: 2.6em;
+}
+
+
+.left {
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+    text-align: left;
+    padding-top: 8em;
+}
+
+.left h3 {
+    color: black;
+}
+
+.left h6 {
+    opacity: 0.5;
+    font-size: 0.8em;
+}
+
+.left p {
+    opacity: 0.4;
+}
+
+.left .button1 a {
+    text-decoration: none;
+    color: white;
+    background: hsl(196.24deg 73.48% 64.51%);
+    padding: 0.5em 1em 0.5em 1em;
+    border-radius: 3em;
+}
+
+.right .button2 a {
+    text-decoration: none;
+    color: white;
+    background: hsl(341.09deg 76.67% 76.47%);
+    padding: 0.5em 1em 0.5em 1em;
+    border-radius: 3em;
+}
+
+.right h3 {
+    color: black;
+}
+
+.right {
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+    text-align: left;
+    padding-top: 8em;
+}
+
+.right ul {
+    list-style: none;
+}
+
+.right ul li {
+    font-weight: bold;
+    opacity: 0.5;
+}
+
+.right ul li:before {
+    content: '✓';
+    margin-right: 1em;
+    color: hsl(196.24deg 73.48% 64.51%);
+    font-weight: bolder;
+  }
+
+
+  .right h6 {
+    opacity: 0.5;
+    font-size: 0.8em;
+}
+
+.right p {
+    opacity: 0.4;
+}
+
+.main3 {
+    display: flex;
+    justify-content: center;
+    padding-top: 5em;
+}
+
+
+.main3 h1 {
+    font-size: 4.4em;
+    color: hsl(341.09deg 76.67% 76.47%);
+    padding-left: 1em;
+}
+
+.main3 h1 span {
+    color: hsl(196.24deg 73.48% 64.51%);
+}
+
+.main3 .info {
+    display: flex;
+    gap: 1em;
+}
+
+.infoleft {
+    border-right: 3px solid grey;
+    padding-right: 1em;
+}
+
+.custom {
+    margin-top: 4em;
+    padding-left: 5em;
+    padding-bottom: 5em;
+    color: darkgray;
+}
+
+
+.custom span {
+    color: hsl(341.09deg 76.67% 76.47%);
+}
+
+.info h3 {
+    color: black;
+    opacity: 0.7;
+}
+
+.infoleft {
+    justify-content: flex-end;
+    text-align: right;
+}
+
+.info {
+    line-height: 2;
+}
+
+.infoleft p, .inforight p {
+    opacity: 0.5;
+}
