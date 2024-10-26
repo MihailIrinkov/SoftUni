@@ -1,0 +1,108 @@
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font: 14px/1.5 Lato, sans-serif;
+}
+
+body, input, select, button {
+    font: inherit;
+}
+
+body {
+    padding: 2em;
+    background: hsl(0deg 0% 100%);
+}
+
+.container {
+    display: flex;
+    padding: 2em 5em 2em 5em;
+    box-shadow: 0 0 1em 0 rgb(0, 0, 0, 0.8);
+    gap: 3em;
+}
+
+.media img {
+    width: 43.3em;
+    height: auto;
+}
+
+.text {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+h1, h6, .buttons {
+    text-transform: uppercase;
+}
+
+.head {
+    background: hsl(0deg 0% 95.29%);
+    padding: 2em 4em 3em 3em;
+    border-left: 0.3em solid hsl(87.11deg 58.44% 45.29%);
+}
+
+h6 {
+    color: hsl(87.11deg 58.44% 45.29%);
+    padding-bottom: 2em;
+}
+
+h1 {
+    font-size: 2.4em;
+}
+
+.single {
+    font-size: 0.8em;
+    font-weight: bold;
+    color: hsl(0deg 0% 39.61%);
+    text-align: center;
+}
+
+.content {
+    background: hsl(0deg 0% 94.12%);
+    padding: 2em;
+    padding-bottom: 2.5em;
+}
+
+a {
+    text-decoration: none;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 1em;
+}
+
+.greenbutton {
+    display: flex;
+    background: hsl(87.11deg 58.44% 45.29%);
+    flex: 1 1 50%;
+    justify-content: center;
+    padding: 0.3em 0 0.3em 0;
+}
+
+.greybutton {
+    display: flex;
+    background: hsl(0, 5%, 92%);
+    flex: 1 1 50%;
+    justify-content: center;
+    padding: 0.3em 0 0.3em 0;
+}
+
+.greenbutton a {
+    color: white;
+}
+
+.greybutton a {
+    color: hsl(87.11deg 58.44% 45.29%);
+}
+
+.content p {
+    opacity: 0.5;
+    padding-bottom: 1em;
+}
