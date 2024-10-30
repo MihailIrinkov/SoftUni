@@ -20,3 +20,16 @@ function gradeText(name, grade) {
 }
 
 gradeText(`Misho`, 5.566);
+
+for (let i= 1; i<= 5; i++) {
+    console.log(i);
+}
+
+let j = 1;
+while (j <= 5) {
+    console.log(j);
+    j++;
+}
+
+let car;
+console.log(typeof car);
