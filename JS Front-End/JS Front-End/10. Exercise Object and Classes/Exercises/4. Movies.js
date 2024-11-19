@@ -1,21 +1,25 @@
 function solve(input) {
 
-    const movies ={};
+    const movies = {};
 
     input.forEach((line) => {
         if (line.includes('addMovie')) {
 
             const [_, name] = line.split('addMovie ');
-            movies[name] = {name};
+            movies[name] = {name}; // equal to an object who have value / property name
+
         } else if (line.includes('directedBy')) {
 
             const [name, director] = line.split(' directedBy ');
-            if (!movies.hasOwnProperty(name)) movies[name] ={};
+            if (!movies.hasOwnProperty(name)) movies[name] = {};
             movies[name].director = director;
+
         } else if (line.includes('onDate')) {
-            const[name, date] = line.split(' onDate ');
+
+            const [name, date] = line.split(' onDate ');
             if (!movies.hasOwnProperty(name)) movies[name] = {};
             movies[name].date = date;
+
         }
     });
 
