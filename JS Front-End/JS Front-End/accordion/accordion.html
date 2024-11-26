@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accordion</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+
+        *, *::before, *::after {
+            box-sizing: inherit;
+        }
+
+        html {
+            box-sizing: border-box;
+        }
+
+        body {
+            padding: 2em;
+        }
+
+        p {
+            padding-bottom: 1.5em;
+        }
+
+        .accordion {
+            margin-bottom: 1.5em;
+            padding: 0.2em;
+
+            &,
+            .item-heading,
+            .item-content {
+                border: 1px solid #ccc;
+                border-radius: 0.3em;
+            }
+
+            .item-heading, 
+            .item-content {
+                padding: 1em;
+            }
+
+            .item-heading {
+                background: #EEE;
+                margin-bottom: 0.2em;
+            }
+
+            .item-content {
+                display: none;
+                p:last-child {
+                    padding: 0;
+                }
+            }
+
+            .item[data-open="true"] {
+
+                .item-heading {
+                    background: #efe;
+                    font-weight: bold;
+                }
+
+                .item-content {
+                    display: block;
+                    margin-bottom: 0.2em;
+                }
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="accordion">
+        <div class="item" data-open="true">
+            <div class="item-heading">item title that is interesting</div>
+            <div class="item-content">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, labore at est eius iste distinctio nemo inventore eos quod alias obcaecati praesentium expedita, necessitatibus ratione doloribus porro dolores, amet quidem.</p>
+            </div>
+        </div>
+        <div class="item">
+            <div class="item-heading">item title that is interesting</div>
+            <div class="item-content">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, labore at est eius iste distinctio nemo inventore eos quod alias obcaecati praesentium expedita, necessitatibus ratione doloribus porro dolores, amet quidem.</p>
+            </div>
+        </div>
+        <div class="item">
+            <div class="item-heading">item title that is interesting</div>
+            <div class="item-content">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, labore at est eius iste distinctio nemo inventore eos quod alias obcaecati praesentium expedita, necessitatibus ratione doloribus porro dolores, amet quidem.</p>
+            </div>
+        </div>
+        <div class="item">
+            <div class="item-heading">item title that is interesting</div>
+            <div class="item-content">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, labore at est eius iste distinctio nemo inventore eos quod alias obcaecati praesentium expedita, necessitatibus ratione doloribus porro dolores, amet quidem.</p>
+            </div>
+        </div>
+    </div>
+
+    <p>Dolor sit amet consectetur adipisicing elit. At, inventore ex totam eius provident vero. Maxime in eum ad repellat aliquid illo rem commodi, aut odit ratione, dignissimos, pariatur officia.</p>
+
+    <div class="accordion">
+        <div class="item">
+            <div class="item-heading">item title that is interesting</div>
+            <div class="item-content">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, labore at est eius iste distinctio nemo inventore eos quod alias obcaecati praesentium expedita, necessitatibus ratione doloribus porro dolores, amet quidem.</p>
+            </div>
+        </div>
+        <div class="item">
+            <div class="item-heading">item title that is interesting</div>
+            <div class="item-content">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, labore at est eius iste distinctio nemo inventore eos quod alias obcaecati praesentium expedita, necessitatibus ratione doloribus porro dolores, amet quidem.</p>
+            </div>
+        </div>
+        <div class="item">
+            <div class="item-heading">item title that is interesting</div>
+            <div class="item-content">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, labore at est eius iste distinctio nemo inventore eos quod alias obcaecati praesentium expedita, necessitatibus ratione doloribus porro dolores, amet quidem.</p>
+            </div>
+        </div>
+        <div class="item">
+            <div class="item-heading">item title that is interesting</div>
+            <div class="item-content">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, labore at est eius iste distinctio nemo inventore eos quod alias obcaecati praesentium expedita, necessitatibus ratione doloribus porro dolores, amet quidem.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+        document.querySelector('body').addEventListener('click', accordionsEventHandler);
+
+        function accordionsEventHandler(e) {
+            if (e.target.classList.contains('item-heading')) {
+
+                [...e.target.parentElement.parentElement.children].forEach(element => {
+                    element.dataset.open = false;
+                });
+
+                e.target.parentElement.dataset.open = true;
+            }
+        }
+
+
+    </script>
+
+</body>
+</html>
