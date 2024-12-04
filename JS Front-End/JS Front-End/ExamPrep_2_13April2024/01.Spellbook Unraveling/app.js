@@ -12,13 +12,7 @@ function solve(commands) {
         switch (action) {
 
             case 'RemoveEven':
-                let spellToEncode = spell.split('');
-                for (let i = 0; i < spellToEncode.length; i++) {
-                    if (i % 2 === 0) {
-                        encodedSpell += spellToEncode[i];
-                        spell = encodedSpell;
-                    }
-                }
+                spell = spell.split('').filter((char, index) => index % 2 === 0).join('');
                 console.log(spell);
                 break;
 
@@ -26,17 +20,19 @@ function solve(commands) {
                 let firstIndex = Number(command.split('!')[1]);
                 let secondIndex = Number(command.split('!')[2]);
 
-                spell = spell.slice(firstIndex, secondIndex);
+                if (firstIndex > 0 || secondIndex > 0) {
+                    spell = spell.slice(firstIndex, secondIndex);
+                }
                 console.log(spell);
                 break;
 
             case 'Reverse':
                 let combination = command.split('!')[1];
                 if (spell.includes(combination)) {
-
                     let reverseString = combination.split('').reverse().join('');
 
-                    spell = spell.replace(combination, '').concat(reverseString);
+                    spell = spell.replace(combination, '');
+                    spell += reverseString;
                     console.log(spell);
                 } else {
                     console.log('Error');
@@ -46,7 +42,7 @@ function solve(commands) {
         command = commands.shift();
     }
 
-    console.log(`The concealed spell is: ${spell}`.trim());
+    console.log(`The concealed spell is: ${spell}`);
 }
 
 solve((["asAsl2adkda2mdaczsa",
