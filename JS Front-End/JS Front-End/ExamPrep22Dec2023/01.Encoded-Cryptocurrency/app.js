@@ -16,15 +16,13 @@ function solve(inputData) {
                 break;
             case 'ChangeAll':
                 let replacement = command.split('?')[2];
-                // encodedMessage = encodedMessage.replaceAll(substring, replacement);
                 while (encodedMessage.includes(substring)) {
                     encodedMessage = encodedMessage.replace(substring, replacement);
                 }
                 console.log(encodedMessage);
                 break;
             case 'Reverse':
-                let encode = encodedMessage.split(substring);
-                if (encode.length > 1) {
+                if (encodedMessage.includes(substring)) {
                     encodedMessage = encodedMessage.replace(substring, '');
                     encodedMessage += substring.split('').reverse().join('');
                     console.log(encodedMessage);
