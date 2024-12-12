@@ -29,7 +29,7 @@ function sprint(inputData) {
             case 'Change Status':
                 if (!assignee.hasOwnProperty(name)) {
                     console.log(`Assignee ${name} does not exist on the board!`);
-                } else if (!assignee[name].taskId === taskId) {
+                } else if (!(assignee[name][0].taskId === taskId)) {
                     console.log(`Task with ID ${taskId} does not exist for ${name}!`);
                 } else {
                     const task =  assignee[name].find((t) => t.taskId === taskId);
