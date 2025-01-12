@@ -1,82 +1,183 @@
-function lockedProfile() {
-    const baseUrl = 'http://localhost:3030/jsonstore/advanced/profiles';
-
-    const structuredProfileElement = document.querySelector('.profile');
-    const mainContentElement = document.querySelector('#main');
-
-    async function customFetch(url, options) {
-        try {
-            const data = await fetch(url, options).then((res) => {
-                if (!res.ok) {
-                    throw new Error(res.message);
-                }
-                return res.json()
-            });
-        } catch (error) {
-            console.error(error);
-            return { data: null, error};
-        }
-    }
-
-    function showAdditionalData(profileElement, _id) {
-        const {checked: isLocked} = profileElement.querySelector(`input[name="${_id}"]`);
-
-        if (isLocked) {
-            return;
+async function lockedProfile() {
+    try {
+        let response = await fetch('http://localhost:3030/jsonstore/advanced/profiles');
+ 
+        if (!response.ok) {
+            throw new Error('Failed to fetch profiles');
         }
 
-
-        const hiddenDataElement = profileElement.querySelector('.profile > div');
-        const buttonElement = profileElement.querySelector('button');
-
-        const isHidden = buttonElement.textContent === 'Show more';
-
-        if (!isHidden) {
-            profileElement.querySelector('.profile > div').style.display = 'none';
-            profileElement.querySelector('button').textContent = 'Show more';
-        } else {
-            profileElement.querySelector('.profile > div').style.display = 'block';
-            profileElement.querySelector('button').textContent = 'Hide it';
-        }
-    }
-
-    function appendProfiles (profiles) {
-
-        profiles.forEach(({username, email, age, _id}) => {
-            const profileClone = structuredProfileElement.cloneNode(true);
-
-            profileClone.querySelector("input[name='user1Username']").value = username;
-            profileClone.querySelector("input[name='user1Email']").value = email;
-            profileClone.querySelector("input[name='user1Age']").value = age.toString();
-
-            const [lockRadioElement, unlockRadioElement] = profileClone.querySelector("input[name='user1Locked']");
-
-            lockRadioElement.setAttribute("name", _id);
-            unlockRadioElement.setAttribute("name", _id);
-
-            profileClone.querySelector('.profile > div').style.display = 'none';
-
-            mainContentElement.appendChild(profileClone);
-
-            profileClone.querySelector('button')
-            .addEventListener('click', () => showAdditionalData(profileClone, _id));
+        document.getElementById('main').innerHTML = ""
+ 
+        let data = await response.json();
+        Object.entries(data).forEach(([key, profile], index) => {
+            const profileCard = createProfileCard(profile, index + 1);
+            document.getElementById('main').appendChild(profileCard);
         });
-
-        structuredProfileElement.remove();
+    } catch (error) {
+        console.error('Error:', error);
     }
-
-    async function getAllProfiles() {
-        const { data, error } = await customFetch(baseUrl);
-
-        if (error) {
-            return;
-        }
-
-        appendProfiles(Object.values(data));
-    }
-
-    getAllProfiles();
 }
+ 
+function createProfileCard(profile, index) {
+    const cardElement = document.createElement('div');
+    cardElement.classList.add('profile');
+ 
+    const img = document.createElement('img');
+    img.src = './iconProfile2.png';
+    img.classList.add('userIcon');
+    cardElement.appendChild(img);
+ 
+    cardElement.appendChild(createLabel('Lock'));
+    cardElement.appendChild(createRadioButton(`user${index}Locked`, 'lock', true));
+ 
+    cardElement.appendChild(createLabel('Unlock'));
+    cardElement.appendChild(createRadioButton(`user${index}Locked`, 'unlock', false));
+ 
+    cardElement.appendChild(document.createElement('br'));
+    cardElement.appendChild(document.createElement('hr'));
+ 
+    cardElement.appendChild(createLabel('Username'));
+    cardElement.appendChild(createInput('text', `user${index}Username`, profile.username));
+ 
+    const hiddenFields = document.createElement('div');
+    hiddenFields.id = `user${index}HiddenFields`;
+    hiddenFields.classList.add('hiddenInfo');
+ 
+    hiddenFields.appendChild(document.createElement('hr'));
+    hiddenFields.appendChild(createLabel('Email:'));
+    hiddenFields.appendChild(createInput('email', `user${index}Email`, profile.email));
+ 
+    hiddenFields.appendChild(createLabel('Age:'));
+    hiddenFields.appendChild(createInput('number', `user${index}Age`, profile.age));
+ 
+    cardElement.appendChild(hiddenFields);
+ 
+    const button = document.createElement('button');
+    button.textContent = 'Show more';
+    button.addEventListener('click', showMoreOnClick);
+    cardElement.appendChild(button);
+ 
+    return cardElement;
+}
+ 
+function createLabel(text) {
+    const label = document.createElement('label');
+    label.textContent = text;
+    return label;
+}
+ 
+function createRadioButton(name, value, checked) {
+    const radio = document.createElement('input');
+    radio.type = 'radio';
+    radio.name = name;
+    radio.value = value;
+    if (checked) {
+        radio.checked = true;
+    }
+    return radio;
+}
+ 
+function createInput(type, name, value) {
+    const input = document.createElement('input');
+    input.type = type;
+    input.name = name;
+    input.value = value;
+    input.disabled = true;
+    input.readOnly = true;
+    return input;
+}
+ 
+function showMoreOnClick(e) {
+    let profile = e.currentTarget.parentNode;
+    let isLocked = profile.querySelector('input[value="lock"]').checked;
+    let hiddenInformationElement = profile.querySelector('div.hiddenInfo');
+ 
+    if (!isLocked) {
+        hiddenInformationElement.classList.toggle('hiddenInfo');
+ 
+        e.currentTarget.textContent = e.currentTarget.textContent === 'Show more' ? 'Hide it' : 'Show more';
+    }
+}
+
+// function lockedProfile() {
+//     const baseUrl = 'http://localhost:3030/jsonstore/advanced/profiles';
+
+//     const structuredProfileElement = document.querySelector('.profile');
+//     const mainContentElement = document.querySelector('#main');
+
+//     async function customFetch(url, options) {
+//         try {
+//             const data = await fetch(url, options).then((res) => {
+//                 if (!res.ok) {
+//                     throw new Error(res.message);
+//                 }
+//                 return res.json()
+//             });
+//         } catch (error) {
+//             console.error(error);
+//             return { data: null, error};
+//         }
+//     }
+
+//     function showAdditionalData(profileElement, _id) {
+//         const {checked: isLocked} = profileElement.querySelector(`input[name="${_id}"]`);
+
+//         if (isLocked) {
+//             return;
+//         }
+
+
+//         const hiddenDataElement = profileElement.querySelector('.profile > div');
+//         const buttonElement = profileElement.querySelector('button');
+
+//         const isHidden = buttonElement.textContent === 'Show more';
+
+//         if (!isHidden) {
+//             profileElement.querySelector('.profile > div').style.display = 'none';
+//             profileElement.querySelector('button').textContent = 'Show more';
+//         } else {
+//             profileElement.querySelector('.profile > div').style.display = 'block';
+//             profileElement.querySelector('button').textContent = 'Hide it';
+//         }
+//     }
+
+//     function appendProfiles (profiles) {
+
+//         profiles.forEach(({username, email, age, _id}) => {
+//             const profileClone = structuredProfileElement.cloneNode(true);
+
+//             profileClone.querySelector("input[name='user1Username']").value = username;
+//             profileClone.querySelector("input[name='user1Email']").value = email;
+//             profileClone.querySelector("input[name='user1Age']").value = age.toString();
+
+//             const [lockRadioElement, unlockRadioElement] = profileClone.querySelector("input[name='user1Locked']");
+
+//             lockRadioElement.setAttribute("name", _id);
+//             unlockRadioElement.setAttribute("name", _id);
+
+//             profileClone.querySelector('.profile > div').style.display = 'none';
+
+//             mainContentElement.appendChild(profileClone);
+
+//             profileClone.querySelector('button')
+//             .addEventListener('click', () => showAdditionalData(profileClone, _id));
+//         });
+
+//         structuredProfileElement.remove();
+//     }
+
+//     async function getAllProfiles() {
+//         const { data, error } = await customFetch(baseUrl);
+
+//         if (error) {
+//             return;
+//         }
+
+//         appendProfiles(Object.values(data));
+//     }
+
+//     getAllProfiles();
+// }
 
 // function lockedProfile() {
 
