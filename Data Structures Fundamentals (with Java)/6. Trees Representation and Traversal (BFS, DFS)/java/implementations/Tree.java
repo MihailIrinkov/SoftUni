@@ -22,6 +22,7 @@ public class Tree<E> implements AbstractTree<E> {
         }
     }
 
+    @Override
     public List<E> orderBfs() {
         List<E> result = new ArrayList<>();
         Deque<Tree<E>> childrenQueue = new ArrayDeque<>();
