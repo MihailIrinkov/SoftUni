@@ -19,12 +19,18 @@ public class Tree<E> implements AbstractTree<E> {
 
         for (Tree<E> subtree : subtrees) {
             this.children.add(subtree);
+            subtree.parent = this;
         }
     }
 
     @Override
     public List<E> orderBfs() {
         List<E> result = new ArrayList<>();
+
+        if (this.value == null) {
+            return result;
+        }
+
         Deque<Tree<E>> childrenQueue = new ArrayDeque<>();
 
         childrenQueue.offer(this);
@@ -44,7 +50,7 @@ public class Tree<E> implements AbstractTree<E> {
     @Override
     public List<E> orderDfs() {
         List<E> result = new ArrayList<>();
-        
+
         this.doDfs(this, result);
 
 //        Deque<Tree<E>> toTraverse = new ArrayDeque<>();
@@ -59,7 +65,7 @@ public class Tree<E> implements AbstractTree<E> {
 //
 //            result.add(current.value);
 //        }
-        
+
         return result;
     }
 
@@ -104,12 +110,70 @@ public class Tree<E> implements AbstractTree<E> {
 
     @Override
     public void removeNode(E nodeKey) {
+        Tree<E> toRemove = find(nodeKey);
 
+        if (toRemove == null) {
+            throw new IllegalArgumentException();
+        }
+
+        for (Tree<E> child : toRemove.children) {
+            child.parent = null;
+        }
+        toRemove.children.clear();
+
+        Tree<E> parent = toRemove.parent;
+        if (parent != null) {
+            parent.children.remove(toRemove);
+        }
+
+        toRemove.value = null;
     }
 
     @Override
     public void swap(E firstKey, E secondKey) {
+        Tree<E> firstNode = find(firstKey);
+        Tree<E> secondNode = find(secondKey);
 
+        if (firstNode == null || secondNode == null) {
+            throw new IllegalArgumentException();
+        }
+
+        Tree<E> firstParent = firstNode.parent;
+        Tree<E> secondParent = secondNode.parent;
+
+//        Tree<E> tmp = firstNode;
+//        firstNode = secondNode;
+//        secondNode = tmp;
+
+        if (firstParent == null) {
+            swapRoot(secondNode);
+            return;
+        } else if (secondParent == null) {
+            swapRoot(firstNode);
+            return;
+        }
+
+        firstNode.parent = secondParent;
+        secondNode.parent = firstParent;
+
+        int firstIndex = firstParent.children.indexOf(firstNode);
+        int secondIndex = secondParent.children.indexOf(secondNode);
+
+        firstParent.children.set(firstIndex, secondNode);
+        secondParent.children.set(secondIndex, firstNode);
+
+//        firstParent.children.remove(firstNode);
+//        firstParent.children.add(secondNode);
+
+//        secondParent.children.remove(secondNode);
+//        secondParent.children.add(firstNode);
+    }
+
+    private void swapRoot(Tree<E> node) {
+        this.value = node.value;
+        this.children = node.children;
+        this.parent = null;
+        node.parent = null;
     }
 }
 
