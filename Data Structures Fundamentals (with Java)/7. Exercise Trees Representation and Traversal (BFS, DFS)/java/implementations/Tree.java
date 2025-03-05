@@ -104,12 +104,57 @@ public class Tree<E> implements AbstractTree<E> {
 
     @Override
     public List<E> getMiddleKeys() {
-        return null;
+        List<Tree<E>> allNodes = new ArrayList<>();
+        this.traverseTreeWithRecurrence(allNodes, this);
+        return allNodes.stream()
+                .filter(tree -> tree.parent != null && tree.children.size() > 0)
+                .map(Tree::getKey)
+                .collect(Collectors.toCollection(ArrayList::new));
+    }
+
+
+    private void traverseTreeWithRecurrence(List<Tree<E>> collection, Tree<E> tree) {
+        collection.add(tree);
+        for (Tree<E> child : tree.children) {
+            traverseTreeWithRecurrence(collection, child);
+        }
     }
 
     @Override
     public Tree<E> getDeepestLeftmostNode() {
-        return null;
+        List<Tree<E>> trees = this.traverseWithBFS();
+
+        int maxPath = 0;
+
+        Tree<E> deepestLeftmostNode = null;
+
+        for (Tree<E> tree : trees) {
+            if (tree.isLeaf()) {
+                int currentPath = getStepsFromLeafToRoot(tree);
+                if (currentPath > maxPath) {
+                    maxPath = currentPath;
+                    deepestLeftmostNode = tree;
+                }
+            }   
+        }
+        
+        return deepestLeftmostNode;
+    }
+
+    private int getStepsFromLeafToRoot(Tree<E> tree) {
+        int counter = 0;
+        Tree<E> current = tree;
+
+        while (current != null) {
+            counter++;
+            current = current.parent;
+        }
+
+        return counter;
+    }
+
+    private boolean isLeaf() {
+        return this.parent != null && this.children.size() == 0;
     }
 
     @Override
