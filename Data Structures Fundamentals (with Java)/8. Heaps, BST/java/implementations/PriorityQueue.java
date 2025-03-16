@@ -33,8 +33,8 @@ public class PriorityQueue<E extends Comparable<E>> implements AbstractQueue<E> 
         }
     }
 
-    private boolean isLess(int childIndex, int parentIndex) {
-        return getAt(childIndex).compareTo(getAt(parentIndex)) < 0;
+    private boolean isLess(int first, int second) {
+        return getAt(first).compareTo(getAt(second)) < 0;
     }
 
     private boolean hasParent(int index) {
@@ -70,7 +70,39 @@ public class PriorityQueue<E extends Comparable<E>> implements AbstractQueue<E> 
         ensureNonEmpty();
         E returneValaue = getAt(0);
 
+        Collections.swap(this.elements, 0, this.size() - 1);
+        this.elements.remove(this.size() - 1);
+        this.heepifyDown(0);
         return returneValaue;
+    }
+
+    private E getLeftChild(int index) {
+        return this.elements.get(this.getLeftChildIndex(index));
+    }
+
+    private E getRightChild(int index) {
+        return this.elements.get(this.getRightChildIndex(index));
+    }
+
+    private int getLeftChildIndex(int index) {
+        return 2 * index + 1;
+    }
+
+    private int getRightChildIndex(int index) {
+        return 2 * index + 2;
+    }
+
+    private void heepifyDown(int index) {
+        while (getLeftChildIndex(index) < this.size() && isLess(index, getLeftChildIndex(index))) {
+            int child = getLeftChildIndex(index);
+            int rightChildIndex = getRightChildIndex(index);
+            if (rightChildIndex < this.size() && isLess(child, rightChildIndex)) {
+                child = rightChildIndex;
+            }
+
+            Collections.swap(this.elements, child, index);
+            index = child;
+        }
     }
 
     private E getAt(int index) {
