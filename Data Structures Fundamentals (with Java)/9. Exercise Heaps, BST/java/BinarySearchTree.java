@@ -11,6 +11,10 @@ public class BinarySearchTree<E extends Comparable<E>> {
         this.root = new Node<>(element);
     }
 
+    public BinarySearchTree(Node<E> otherRoot) {
+        this.root = new Node<>(otherRoot);
+    }
+
     public static class Node<E> {
         private E value;
         private Node<E> leftChild;
@@ -19,6 +23,19 @@ public class BinarySearchTree<E extends Comparable<E>> {
         public Node(E value) {
             this.value = value;
         }
+
+        public Node(Node<E> other) {
+            this.value = other.value;
+
+            if (other.getLeft() != null) {
+                this.leftChild = new Node<>(other.getLeft());
+            }
+
+            if (other.getRight() != null) {
+                this.rightChild = new Node<>(other.getRight());
+            }
+        }
+
 
         public Node<E> getLeft() {
             return this.leftChild;
@@ -72,30 +89,30 @@ public class BinarySearchTree<E extends Comparable<E>> {
     }
 
     public boolean contains(E element) {
-        return containsNode(this.root, element);
+//        return containsNode(this.root, element);
 
-//        Node<E> current = this.root;
-//
-//        while (current != null) {
-//            if (isEqual(element, current)) {
-//                break;
-//            } else if (isGreater(element, current)) {
-//                current = current.getRight();
-//            } else {
-//                current = current.getLeft();
-//            }
-//        }
-//
-//        return current != null;
+        Node<E> current = this.root;
+
+        while (current != null) {
+            if (isEqual(element, current)) {
+                break;
+            } else if (isGreater(element, current)) {
+                current = current.getRight();
+            } else {
+                current = current.getLeft();
+            }
+        }
+
+        return current != null;
     }
 
-    private boolean containsNode(Node<E> node, E element) {
+    private Node<E> containsNode(Node<E> node, E element) {
         if (node == null) {
-            return false;
+            return null;
         }
 
         if (isEqual(element, node)) {
-            return true;
+            return node;
         } else if (isGreater(element, node)) {
             return containsNode(node.getRight(), element);
         }
@@ -104,7 +121,9 @@ public class BinarySearchTree<E extends Comparable<E>> {
     }
 
     public BinarySearchTree<E> search(E element) {
-        return null;
+        Node<E> found = containsNode(this.root, element);
+
+        return found == null ? null : new BinarySearchTree<>(found);
     }
 
     public List<E> range(E first, E second) {
