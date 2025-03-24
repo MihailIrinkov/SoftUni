@@ -1,11 +1,18 @@
 import solutions.BinaryTree;
 
+import java.util.ArrayDeque;
+import java.util.ArrayList;
+import java.util.Deque;
 import java.util.function.Consumer;
 
 import java.util.List;
 
 public class BinarySearchTree<E extends Comparable<E>> {
     private Node<E> root;
+
+    public BinarySearchTree() {
+
+    }
 
     public BinarySearchTree(E element) {
         this.root = new Node<>(element);
@@ -19,13 +26,16 @@ public class BinarySearchTree<E extends Comparable<E>> {
         private E value;
         private Node<E> leftChild;
         private Node<E> rightChild;
+        private int count;
 
         public Node(E value) {
             this.value = value;
+            this.count = 1;
         }
 
         public Node(Node<E> other) {
             this.value = other.value;
+            this.count = other.count;
 
             if (other.getLeft() != null) {
                 this.leftChild = new Node<>(other.getLeft());
@@ -69,7 +79,11 @@ public class BinarySearchTree<E extends Comparable<E>> {
     }
 
     public void insert(E element) {
-        insertInto(this.root, element);
+        if (this.root == null) {
+            this.root = new Node<>(element);
+        } else {
+            insertInto(this.root, element);
+        }
     }
 
     private void insertInto(Node<E> node, E element) {
@@ -77,12 +91,14 @@ public class BinarySearchTree<E extends Comparable<E>> {
             if (node.getRight() == null) {
                 node.rightChild = new Node<>(element);
             } else {
+                node.count++;
                 insertInto(node.getRight(), element);
             }
         } else if (isLess(element, node)) {
             if (node.getLeft() == null) {
                 node.leftChild = new Node<>(element);
             } else {
+                node.count++;
                 insertInto(node.getLeft(), element);
             }
         }
@@ -126,20 +142,73 @@ public class BinarySearchTree<E extends Comparable<E>> {
         return found == null ? null : new BinarySearchTree<>(found);
     }
 
-    public List<E> range(E first, E second) {
-        return null;
+    public List<E> range(E lower, E upper) {
+
+        List<E> result = new ArrayList<>();
+
+        if (this.root == null) {
+            return result;
+        }
+
+        Deque<Node<E>> queue = new ArrayDeque<>();
+
+        queue.offer(this.root);
+
+        while (!queue.isEmpty()) {
+            Node<E> current = queue.poll();
+
+            if (current.getLeft() != null) {
+                queue.offer(current.getLeft());
+            }
+
+            if (current.getRight() != null) {
+                queue.offer(current.getRight());
+            }
+
+            if (isLess(lower, current) && isGreater(upper, current)) {
+                result.add(current.getValue());
+            } else if (isEqual(lower, current) || isEqual(upper, current)) {
+                result.add(current.getValue());
+            }
+        }
+
+        return result;
     }
 
     public void deleteMin() {
+        ensureNonEmpty();
 
+        if (this.root.getLeft() == null) {
+            this.root = this.root.getRight();
+            return;
+        }
+
+        Node<E> current = this.root;
+        while (current.getLeft().getLeft() != null) {
+            current = current.getLeft();
+        }
+
+        current.leftChild = current.getLeft().getRight();
     }
 
     public void deleteMax() {
+        ensureNonEmpty();
 
+        if (this.root.getRight() == null) {
+            this.root = this.root.getLeft();
+            return;
+        }
+
+        Node<E> current = this.root;
+        while (current.getRight().getRight() != null) {
+            current = current.getRight();
+        }
+
+        current.rightChild = current.getRight().getLeft();
     }
 
     public int count() {
-        return 0;
+        return this.root == null ? 0 : this.root.count;
     }
 
     public int rank(E element) {
@@ -165,4 +234,11 @@ public class BinarySearchTree<E extends Comparable<E>> {
     private boolean isGreater(E element, Node<E> node) {
         return element.compareTo(node.getValue()) > 0;
     }
+
+    private void ensureNonEmpty() {
+        if (this.root == null) {
+            throw new IllegalArgumentException();
+        }
+    }
+
 }
