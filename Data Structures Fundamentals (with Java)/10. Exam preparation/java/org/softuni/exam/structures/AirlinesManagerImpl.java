@@ -3,10 +3,7 @@ package org.softuni.exam.structures;
 import org.softuni.exam.entities.Airline;
 import org.softuni.exam.entities.Flight;
 
-import java.util.ArrayList;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class AirlinesManagerImpl implements AirlinesManager {
@@ -32,7 +29,9 @@ public class AirlinesManagerImpl implements AirlinesManager {
         List<Flight> currentAirlineFlights = flightsByAirline.get(airline.getId());
         currentAirlineFlights.add(flight);
 
-
+        if (flight.isCompleted()) {
+            completedFlights.put(flight.getId(), flight);
+        }
     }
 
     @Override
@@ -54,6 +53,7 @@ public class AirlinesManagerImpl implements AirlinesManager {
         List<Flight> removedAirlineFlights = flightsByAirline.get(airline.getId());
         for (Flight flight : removedAirlineFlights) {
             flights.remove(flight.getId());
+            completedFlights.remove(flight.getId());
         }
     }
 
@@ -72,29 +72,45 @@ public class AirlinesManagerImpl implements AirlinesManager {
         Flight completedFlight = flights.get(flight.getId());
         completedFlight.setCompleted(true);
 
+        completedFlights.put(completedFlight.getId(), completedFlight);
+
         return completedFlight;
     }
 
     @Override
     public Iterable<Flight> getCompletedFlights() {
-        return flights.values()
-                .stream()
-                .filter(Flight::isCompleted)
-                .collect(Collectors.toList());
+//        return flights.values()
+//                .stream()
+//                .filter(Flight::isCompleted)
+//                .collect(Collectors.toList());
+
+        return completedFlights.values();
     }
 
     @Override
     public Iterable<Flight> getFlightsOrderedByNumberThenByCompletion() {
-        return null;
+        return flights.values().stream()
+                .sorted(Comparator.comparing(Flight::isCompleted)
+                        .thenComparing(Flight::getNumber))
+                .collect(Collectors.toList());
     }
 
     @Override
     public Iterable<Airline> getAirlinesOrderedByRatingThenByCountOfFlightsThenByName() {
-        return null;
+        return airlines.values().stream()
+                .sorted(Comparator.comparing(Airline::getRating)//.reversed()
+                        .thenComparing(a -> flightsByAirline.get(a.getId()).size()).reversed()
+                        .thenComparing(Airline::getName))
+                .collect(Collectors.toList());
     }
 
     @Override
     public Iterable<Airline> getAirlinesWithFlightsFromOriginToDestination(String origin, String destination) {
-        return null;
+        return airlines.values().stream()
+                .filter(a -> flightsByAirline.get(a.getId())
+                        .stream().anyMatch(f -> !f.isCompleted()
+                                && f.getOrigin().equals(origin)
+                                && f.getDestination().equals(destination)))
+                .collect(Collectors.toList());
     }
 }
