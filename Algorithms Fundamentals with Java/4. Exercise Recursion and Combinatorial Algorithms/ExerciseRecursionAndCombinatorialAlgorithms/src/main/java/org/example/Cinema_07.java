@@ -60,13 +60,22 @@ public class Cinema_07 {
 
     private static void print() {
         int index = 0;
-        for (String seat : seats) {
-            if (seat != null) {
-                System.out.print(seat + " ");
+//        for (String seat : seats) {
+//            if (seat != null) {
+//                System.out.print(seat + " ");
+//            } else {
+//                System.out.print(combinations[index++] + " ");
+//            }
+//        }
+//        System.out.println();
+        String[] out = new String[seats.length];
+        for (int i = 0; i < out.length; i++) {
+            if (seats[i] != null) {
+                out[i] = seats[i];
             } else {
-                System.out.print(combinations[index++] + " ");
+                out[i] = combinations[index++];
             }
         }
-        System.out.println();
+        System.out.println(String.join(" ", out));
     }
 }
