@@ -1,7 +1,4 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class MoveDownRight_03 {
     public static void main(String[] args) {
@@ -44,9 +41,18 @@ public class MoveDownRight_03 {
 
         path.add(formatOutput(row, col));
 
-        while (row >= 0 || col >= 0) {
-            int top = table[row - 1][col];
-            int left = table[row][col - 1];
+        while (row > 0 || col > 0) {
+            int top = -1;
+
+            if (row > 0) {
+                top = table[row - 1][col];
+            }
+
+            int left = -1;
+
+            if (col > 0) {
+                left = table[row][col - 1];
+            }
 
             if (top > left) {
                 row--;
@@ -56,6 +62,9 @@ public class MoveDownRight_03 {
 
             path.add(formatOutput(row, col));
         }
+
+        Collections.reverse(path);
+        System.out.println(String.join(" ", path));
     }
 
     private static String formatOutput(int row, int col) {
