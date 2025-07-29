@@ -1,0 +1,36 @@
+import java.util.Scanner;
+
+public class Stairs_02 {
+
+    private static int[] memory;
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int stairs = Integer.parseInt(scanner.nextLine());
+
+        memory = new int[stairs + 1];
+
+        System.out.println(climbStairs(stairs));
+
+    }
+
+    private static int climbStairs(int stairs) {
+
+        if (memory[stairs] != 0) {
+            return memory[stairs];
+        }
+
+        if (stairs == 1) {
+            return 1;
+        } else if (stairs == 2) {
+            return 2;
+        }
+
+        int result = climbStairs(stairs - 1) + climbStairs(stairs - 2);
+
+        memory[stairs] = result;
+
+        return result;
+    }
+}
