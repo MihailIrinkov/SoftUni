@@ -2,20 +2,25 @@ import java.util.Scanner;
 
 public class Stairs_02 {
 
-    private static int[] memory;
+    private static long[] memory;
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
         int stairs = Integer.parseInt(scanner.nextLine());
 
-        memory = new int[stairs + 1];
+        if (stairs == 0) {
+            System.out.println(0);
+            return;
+        }
+
+        memory = new long[stairs + 1];
 
         System.out.println(climbStairs(stairs));
 
     }
 
-    private static int climbStairs(int stairs) {
+    private static long climbStairs(int stairs) {
 
         if (memory[stairs] != 0) {
             return memory[stairs];
@@ -27,7 +32,7 @@ public class Stairs_02 {
             return 2;
         }
 
-        int result = climbStairs(stairs - 1) + climbStairs(stairs - 2);
+        long result = climbStairs(stairs - 1) + climbStairs(stairs - 2);
 
         memory[stairs] = result;
 
